@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.HomeFragment">
+
+    <LinearLayout
+        android:id="@+id/transitions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/superior"
+            style="?barraTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/logoHome"
+                style="?logoImagen"
+                android:layout_width="@dimen/_155sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_7sdp"
+                android:contentDescription="@string/imagen" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImg"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:contentDescription="@string/imagen"
+                    android:src="@drawable/avatar" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/multiStateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            app:msv_emptyView="@layout/empty_view_app"
+            app:msv_errorView="@layout/error_view_app"
+            app:msv_loadingView="@layout/loading_view_app"
+            app:msv_viewState="loading">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </com.kennyc.view.MultiStateView>
+
+    </LinearLayout>
+
+</FrameLayout>

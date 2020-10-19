@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?BackgroundCommentWithReply"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:orientation="vertical"
+    android:padding="@dimen/_5sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userAvatarComentWithReply"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:src="@drawable/avatar" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/full_name_comment_with_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Yamir Miranda Veitia"
+                android:textColor="?colorNegro"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="RtlHardcoded" />
+
+            <ImageView
+                android:id="@+id/commentOptionWR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:contentDescription="@string/imagen"
+                android:src="@drawable/ic_coment_option"
+                app:tint="?colorNegro"
+                tools:ignore="RtlHardcoded" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RatingBar
+            android:id="@+id/ratingBarCommentWith"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="5" />
+
+        <TextView
+            android:id="@+id/commentDateWR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="8/10/2020"
+            android:textColor="?colorNegro"
+            android:textSize="@dimen/_9ssp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/commentTextWR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="ewaudh eaudfuc neaufdzncu uenfadu uebadfu beadfuzb \nebfasuobfuewdfnd enaduofboewu nueobadfuowed\neiwdbfobeoeusdbfuobeousdbouf \nnewobdfuorbsdugboursd \newindfinerwisdgfo uewbdsufbewu bewudsbfwbsudb buewbdsfubwousdbo bewudbsufbwuuwebsd \nebwudfbweusdb buewbdsfub buebwfusdb uewbfdsubf"
+        android:textColor="?colorNegro"
+        android:textSize="@dimen/_9ssp" />
+
+</LinearLayout>

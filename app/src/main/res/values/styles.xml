@@ -1,10 +1,145 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar"/>
+
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="bgColor">@color/colorFondoLight</item>
+        <item name="colorBlanco">@color/colorBlanco</item>
+        <item name="colorNegro">@color/colorNegro</item>
+        <item name="colorTitleBar">@color/colorBlanco</item>
+
+        <item name="barraTitulo">@style/BarraTituloLight</item>
+        <item name="logoImagen">@style/logoLight</item>
+        <item name="botonRedondo">@style/botonRedondoLight</item>
+        <item name="BackgroundLoad">@style/BackgroundLoadLight</item>
+        <item name="BackgroundComment">@style/BackgroundCommentLight</item>
+        <item name="BackgroundCommentWithReply">@style/BackgroundCommentWithReplyLight</item>
+        <item name="BackgroundCommentReplyEnd">@style/BackgroundCommentReplyEndLight</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="bgColor">@color/colorNegro</item>
+        <item name="colorBlanco">@color/colorNegro</item>
+        <item name="colorNegro">@color/colorBlanco</item>
+        <item name="colorTitleBar">@color/colorTitleBarDark</item>
+
+        <item name="barraTitulo">@style/BarraTituloDark</item>
+        <item name="logoImagen">@style/logoDark</item>
+        <item name="botonRedondo">@style/botonRedondoDark</item>
+        <item name="BackgroundLoad">@style/BackgroundLoadDark</item>
+        <item name="BackgroundComment">@style/BackgroundCommentDark</item>
+        <item name="BackgroundCommentWithReply">@style/BackgroundCommentWithReplyDark</item>
+        <item name="BackgroundCommentReplyEnd">@style/BackgroundCommentReplyEndDark</item>
+    </style>
+
+    <style name="SplashThemeLight" parent="LightTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/colorBlanco</item>
+    </style>
+
+    <style name="SplashThemeDark" parent="DarkTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/colorBlanco</item>
+    </style>
+
+    <style name="HintTextAparenceLight" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorHint">@color/colorNegro</item>
+        <item name="android:textColor">@color/colorNegro</item>
+    </style>
+
+    <style name="HelperTextAparenceLight" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorNegro</item>
+    </style>
+
+    <style name="CounterTextAparenceLight" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorNegro</item>
+    </style>
+
+    <style name="ErrorTextAparenceLight" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorRojo</item>
+    </style>
+
+    <!--Barra de titulo fondo para ambos temas   -->
+    <style name="BarraTituloLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_title_bar</item>
+    </style>
+
+    <style name="BarraTituloDark" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_title_bar_dark</item>
+    </style>
+
+    <!-- logo para ambos tema-->
+    <style name="logoLight" parent="@android:style/Widget">
+        <item name="android:src">@drawable/ic_apklis_logo</item>
+    </style>
+
+    <style name="logoDark" parent="@android:style/Widget">
+        <item name="android:src">@drawable/ic_apklis_logo_dark</item>
+    </style>
+
+    <!-- boton redondo de para ambos temas-->
+    <style name="botonRedondoLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/boton_redondo_negro</item>
+    </style>
+
+    <style name="botonRedondoDark" parent="@android:style/Widget">
+        <item name="android:background">@drawable/boton_redondo_negro_dark</item>
+    </style>
+
+    <!--Background Load de para ambos temas-->
+    <style name="BackgroundLoadLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_load_round</item>
+    </style>
+
+    <style name="BackgroundLoadDark" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_load_round_dark</item>
+    </style>
+
+    <!--BackgroundComment de para ambos temas-->
+    <style name="BackgroundCommentLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment</item>
+    </style>
+
+    <style name="BackgroundCommentDark" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment_dark</item>
+    </style>
+
+    <!--BackgroundCommentWithReply de para ambos temas-->
+    <style name="BackgroundCommentWithReplyLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment_wr</item>
+    </style>
+
+    <style name="BackgroundCommentWithReplyDark" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment_wr_dark</item>
+    </style>
+
+    <!--BackgroundCommentWithReplyEnd de para ambos temas-->
+    <style name="BackgroundCommentReplyEndLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment_reply_end</item>
+    </style>
+
+    <style name="BackgroundCommentReplyEndDark" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment_reply_end_dark</item>
     </style>
 
 </resources>

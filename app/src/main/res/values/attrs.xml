@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bgColor"  format="color"/>
+    <attr name="colorBlanco"  format="color"/>
+    <attr name="colorNegro"  format="color"/>
+    <attr name="colorTitleBar"  format="color"/>
+
+    <attr name="barraTitulo" format="reference" />
+    <attr name="logoImagen" format="reference" />
+    <attr name="botonRedondo" format="reference" />
+    <attr name="BackgroundLoad" format="reference" />
+
+    <attr name="BackgroundComment" format="reference" />
+    <attr name="BackgroundCommentWithReply" format="reference" />
+    <attr name="BackgroundCommentReplyEnd" format="reference" />
+</resources>

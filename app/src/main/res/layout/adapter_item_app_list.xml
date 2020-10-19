@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:elevation="10dp"
+    android:foreground="?android:selectableItemBackground"
+    card_view:cardBackgroundColor="?colorTitleBar"
+    card_view:cardCornerRadius="@dimen/_10sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/appIcon"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/avatar" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yamir Miranda Veitia"
+                        android:textColor="?colorNegro"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RatingBar
+                            android:id="@+id/ratingBar"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:rating="3.9" />
+
+                        <TextView
+                            android:id="@+id/reviews_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:text="(36)"
+                            android:textColor="?colorNegro"
+                            android:textSize="@dimen/_9ssp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_105sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:gravity="left|center"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlHardcoded">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:src="@drawable/ic_app_download" />
+
+                    <TextView
+                        android:id="@+id/cantDownload"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textColor="?colorNegro"
+                        android:textSize="@dimen/_20ssp" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/botones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="gone">
+
+
+            <Button
+                android:id="@+id/b_cancelar"
+                style="?botonRedondo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_7sdp"
+                android:text="Abrir en la Web"
+                android:textColor="?colorNegro"
+                android:textSize="@dimen/_8ssp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">Apklis Admin</string>
+    <string name="imagen">imagen</string>
+    <string name="credenciales_incorrectas">Credenciales Incorrectas</string>
+    <string name="campo_obligatorio">campo obligatorio</string>
+    <string name="sin_acceso_apklis">Sin acceso a APKLIS</string>
+    <string name="inicio_de_seccion">Inicio de Sección</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasenna">Contraseña</string>
+    <string name="entrar">Entrar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="time_out">El servidor demoro mucho tiempo en responder</string>
+    <string name="error_desconocido">Se detecto un error desconocido, intentelo de nuevo</string>
+    <string name="sin_red">SIN ACCESO A INTERNET</string>
+    <string name="not_is_developer">Usted no es desarrollador</string>
+
+    <!-- Date Util -->
+    <string name="date_util_term_less">less than</string>
+    <string name="date_util_term_a">un</string>
+    <string name="date_util_term_an">una</string>
+
+    <string name="date_util_unit_second">segundo</string>
+    <string name="date_util_unit_seconds">segundos</string>
+    <string name="date_util_unit_minute">minuto</string>
+    <string name="date_util_unit_minutes">minutos</string>
+    <string name="date_util_unit_hour">hora</string>
+    <string name="date_util_unit_hours">horas</string>
+    <string name="date_util_unit_day">día</string>
+    <string name="date_util_unit_days">días</string>
+    <string name="date_util_unit_month">mes</string>
+    <string name="date_util_unit_months">meses</string>
+    <string name="date_util_unit_year">año</string>
+    <string name="date_util_unit_years">años</string>
+
+    <string name="date_util_prefix_lt">less than a</string>
+    <string name="date_util_prefix_about">about</string>
+    <string name="date_util_prefix_over">over</string>
+    <string name="date_util_prefix_almost">almost</string>
+
+    <string name="date_util_suffix">hace</string>
 </resources>
