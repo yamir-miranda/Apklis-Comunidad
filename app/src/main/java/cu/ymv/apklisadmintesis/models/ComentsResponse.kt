@@ -62,3 +62,7 @@ data class CommentReplyEnd(
     val user: User,
     val public: Boolean
 )
+
+data class CommentRes(
+    val id: Int
+)

@@ -17,14 +17,22 @@ class ViewPagerFragmentAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        return if (position == 0) {
-            CommentsFragment.newInstance(appId!!)
-        } else if (position == 1) {
-            CommentsFragment.newInstance(appId!!)
-        } else if (position == 2) {
-            CommentsFragment.newInstance(appId!!)
-        } else {
-            CommentsFragment.newInstance(appId!!)
+        return when (position) {
+            0 -> {
+                AppDetailsFragment()
+            }
+            1 -> {
+                DownloadAppFragment()
+            }
+            2 -> {
+                CommentsFragment.newInstance(appId!!)
+            }
+            3 -> {
+                VersionAppFragment()
+            }
+            else -> {
+                AppDetailsFragment()
+            }
         }
     }
 

@@ -89,7 +89,8 @@
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_1sdp"
                         android:layout_marginRight="@dimen/_5sdp"
-                        android:src="@drawable/ic_app_download" />
+                        android:src="@drawable/ic_app_download"
+                        card_view:tint="?colorNegro" />
 
                     <TextView
                         android:id="@+id/cantDownload"

@@ -11,17 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/adapter_item_coment" />
-
-        <include layout="@layout/adapter_item_coment_reply" />
-
-        <include layout="@layout/adapter_item_coment_reply" />
-
-        <include layout="@layout/adapter_item_coment" />
-
-        <include layout="@layout/adapter_item_coment_reply" />
-
-        <include layout="@layout/adapter_item_coment_reply" />
+        <include layout="@layout/stat"/>
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"

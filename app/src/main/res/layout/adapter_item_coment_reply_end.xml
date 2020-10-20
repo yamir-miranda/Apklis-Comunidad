@@ -44,6 +44,18 @@
                 android:textSize="@dimen/_12ssp"
                 tools:ignore="RtlHardcoded" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:orientation="horizontal">
+            <ProgressBar
+                android:id="@+id/progressBarDeleteRE"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:visibility="gone" />
+
             <ImageView
                 android:id="@+id/commentOptionRE"
                 android:layout_width="wrap_content"
@@ -53,6 +65,7 @@
                 android:src="@drawable/ic_coment_option"
                 app:tint="?colorNegro"
                 tools:ignore="RtlHardcoded" />
+            </LinearLayout>
 
         </FrameLayout>
 

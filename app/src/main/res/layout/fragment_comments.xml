@@ -12,15 +12,24 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
-        app:msv_emptyView="@layout/empty_view_app"
-        app:msv_errorView="@layout/error_view_app"
+        android:animateLayoutChanges="false"
+        app:msv_emptyView="@layout/empty_view_comments"
+        app:msv_errorView="@layout/error_view_comments"
         app:msv_loadingView="@layout/loading_view_app"
-        app:msv_viewState="loading">
+        app:msv_viewState="content">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshComments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_comments"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     </com.kennyc.view.MultiStateView>
 
 </FrameLayout>

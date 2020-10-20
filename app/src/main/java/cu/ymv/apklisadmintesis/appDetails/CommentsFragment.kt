@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.*
@@ -15,10 +17,10 @@ import cu.ymv.apklisadmintesis.R
 import cu.ymv.apklisadmintesis.login.LoginFragment
 import cu.ymv.apklisadmintesis.models.*
 import cu.ymv.apklisadmintesis.utils.MyPreferences
+import cu.ymv.apklisadmintesis.utils.NetworkManager
 import cu.ymv.apklisadmintesis.webservices.VolleySingleton
 import kotlinx.android.synthetic.main.fragment_comments.*
 import kotlinx.android.synthetic.main.fragment_comments.view.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
 private const val ARG_APP_ID = "param_app_id"
@@ -28,7 +30,7 @@ private const val ARG_APP_ID = "param_app_id"
  * Use the [CommentsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CommentsFragment : Fragment() {
+class CommentsFragment : Fragment(), MultiStateView.StateListener {
     // TODO: Rename and change types of parameters
     private var app_id: String? = null
     var adapterComments: CommentsAdapter? = null
@@ -48,7 +50,7 @@ class CommentsFragment : Fragment() {
         }
         adapterComments = CommentsAdapter(
             requireContext(),
-            userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token
+            userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token, userObject!!
         )
     }
 
@@ -66,8 +68,40 @@ class CommentsFragment : Fragment() {
         return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        multiStateViewComments.listener = this
+        multiStateViewComments.getView(MultiStateView.ViewState.ERROR)
+            ?.findViewById<Button>(R.id.btnRetryComments)
+            ?.setOnClickListener {
+                if (!NetworkManager().isNetworkAvailable(requireContext())) {
+                    showTost(resources.getString(R.string.sin_red), false)
+                } else {
+                    Log.d(TAG, "onViewCreated: entro retr")
+                    loadComments(false)
+                }
+            }
+
+        multiStateViewComments.getView(MultiStateView.ViewState.EMPTY)
+            ?.findViewById<Button>(R.id.btnReLoad)
+            ?.setOnClickListener {
+                if (!NetworkManager().isNetworkAvailable(requireContext())) {
+                    multiStateViewComments.viewState = MultiStateView.ViewState.ERROR
+                } else {
+                    loadComments(false)
+                }
+            }
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Log.d(TAG, "onActivityCreated: entro")
+
+        swipeRefreshComments.setOnRefreshListener {
+            swipeRefreshComments.isRefreshing = true
+            loadComments(true)
+        }
         loadComments(false)
     }
 
@@ -91,12 +125,11 @@ class CommentsFragment : Fragment() {
 
     private fun loadComments(reload: Boolean) {
         if (adapterComments!!.itemCount == 0 || reload) {
-            Log.d(TAG, "loadComments: entro a la carga")
             multiStateViewComments.animateLayoutChanges = true
             if (!reload) {
                 multiStateViewComments.viewState = MultiStateView.ViewState.LOADING
             }
-            val urlCommentsApp: String =
+            val urlCommentsApp =
                 "https://api.apklis.cu/v1/review/?application=$app_id&limit=10000&ordering=-published"
             val userRequest: StringRequest = object : StringRequest(Method.GET, urlCommentsApp,
                 Response.Listener { response ->
@@ -161,11 +194,12 @@ class CommentsFragment : Fragment() {
                     } else {
                         adapterComments!!.setData(commentsData)
                         multiStateViewComments.viewState = MultiStateView.ViewState.CONTENT
+                        multiStateViewComments.animateLayoutChanges = false
                     }
 
 
-                    if (swipeRefresh != null) {
-                        swipeRefresh.isRefreshing = false
+                    if (swipeRefreshComments != null) {
+                        swipeRefreshComments.isRefreshing = false
                     }
                 }, Response.ErrorListener { error ->
                     when (error) {
@@ -187,9 +221,10 @@ class CommentsFragment : Fragment() {
                             error.printStackTrace()
                         }
                     }
+                    adapterComments!!.cleaData()
                     multiStateViewComments.viewState = MultiStateView.ViewState.ERROR
-                    if (swipeRefresh != null) {
-                        swipeRefresh.isRefreshing = false
+                    if (swipeRefreshComments != null) {
+                        swipeRefreshComments.isRefreshing = false
                     }
                 }) {
                 override fun getHeaders(): MutableMap<String, String> {
@@ -218,4 +253,17 @@ class CommentsFragment : Fragment() {
         transaction?.disallowAddToBackStack()
         transaction?.commit()
     }
+
+    private fun showTost(text: String, corto: Boolean) {
+        if (corto) {
+            Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onStateChanged(viewState: MultiStateView.ViewState) {
+        Log.d(TAG, "onStateChanged: ")
+    }
+
 }

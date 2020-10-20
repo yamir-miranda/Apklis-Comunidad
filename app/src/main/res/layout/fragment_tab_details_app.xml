@@ -16,14 +16,14 @@
             style="?barraTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="@dimen/_10sdp"
             android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/superior"
 
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/_10sdp">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/logoHome"
@@ -43,9 +43,9 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/userImg"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
+                        android:id="@+id/iconAppDetail"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:contentDescription="@string/imagen"
                         android:src="@drawable/avatar" />

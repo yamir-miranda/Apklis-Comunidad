@@ -156,6 +156,7 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
                     val headers = HashMap<String, String>()
                     headers["Authorization"] =
                         userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token
+                    Log.d(TAG, "getHeaders: " + userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token)
                     return headers
                 }
 
@@ -188,7 +189,8 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
         addFragmentToFragmentBack(
             TabDetailsAppFragment.newInstance(
                 data.id.toString(),
-                data.package_name
+                data.package_name,
+                data.last_release.icon
             )
         )
     }

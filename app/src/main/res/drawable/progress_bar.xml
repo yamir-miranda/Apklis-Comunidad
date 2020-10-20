@@ -21,7 +21,7 @@
                     android:bottomRightRadius="@dimen/_15sdp"
                     android:topLeftRadius="@dimen/_15sdp"
                     android:topRightRadius="@dimen/_15sdp" />
-                <solid android:color="#A2A5B4" />
+                <solid android:color="#fa7001" />
             </shape>
         </clip>
     </item>

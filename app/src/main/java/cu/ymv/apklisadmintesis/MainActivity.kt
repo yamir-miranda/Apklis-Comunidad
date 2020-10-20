@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         if (fragment == null) return
         val fm = supportFragmentManager
         val tr = fm.beginTransaction()
-        tr.add(R.id.container, fragment)
+        tr.replace(R.id.container, fragment)
         tr.commitAllowingStateLoss()
     }
 }
