@@ -13,31 +13,6 @@
 
         <include layout="@layout/stat"/>
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChart"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_250sdp"
-            android:visibility="gone" />
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/piechart"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_250sdp"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <com.github.mikephil.charting.charts.HorizontalBarChart
-                android:id="@+id/horizontalBarChart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/_15sdp" />
-        </LinearLayout>
-
     </LinearLayout>
 
 

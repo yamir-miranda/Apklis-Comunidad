@@ -22,7 +22,6 @@ import cu.ymv.apklisadmintesis.webservices.VolleySingleton
 import kotlinx.android.synthetic.main.fragment_comments.*
 import kotlinx.android.synthetic.main.fragment_comments.view.*
 
-// TODO: Rename parameter arguments, choose names that match
 private const val ARG_APP_ID = "param_app_id"
 
 /**
@@ -31,7 +30,6 @@ private const val ARG_APP_ID = "param_app_id"
  * create an instance of this fragment.
  */
 class CommentsFragment : Fragment(), MultiStateView.StateListener {
-    // TODO: Rename and change types of parameters
     private var app_id: String? = null
     var adapterComments: CommentsAdapter? = null
     val TAG = "CommentsFragment"
@@ -113,7 +111,6 @@ class CommentsFragment : Fragment(), MultiStateView.StateListener {
          * @param app_id Parameter 1.
          * @return A new instance of fragment CommentsFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(app_id: String) =
             CommentsFragment().apply {

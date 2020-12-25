@@ -5,6 +5,7 @@ import android.provider.Settings
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import cu.ymv.apklisadmintesis.appDetails.DownloadAppFragment
 import cu.ymv.apklisadmintesis.home.HomeFragment
 import cu.ymv.apklisadmintesis.login.LoginFragment
 import cu.ymv.apklisadmintesis.utils.DateUtils
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity() {
             addFragmentToActivity(LoginFragment())
         } else {
             addFragmentToActivity(HomeFragment())
+           //addFragmentToActivity(DownloadAppFragment())
         }
     }
 

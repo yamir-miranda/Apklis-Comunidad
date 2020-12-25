@@ -22,7 +22,7 @@ class ViewPagerFragmentAdapter(
                 AppDetailsFragment()
             }
             1 -> {
-                DownloadAppFragment()
+                DownloadAppFragment.newInstance(appId!!, "")
             }
             2 -> {
                 CommentsFragment.newInstance(appId!!)

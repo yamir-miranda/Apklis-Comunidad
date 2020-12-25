@@ -3,6 +3,7 @@ package cu.ymv.apklisadmintesis.utils
 import android.content.Context
 import android.util.Log
 import cu.ymv.apklisadmintesis.R
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -61,6 +62,16 @@ class DateUtils {
 
 
     }
+
+    fun StringToDate(format: String, string_date: String): Date? {
+        return try {
+            SimpleDateFormat(format, Locale.ENGLISH).parse(string_date)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+            null
+        }
+    }
+
 
     fun getTimeAgo(date: Date?, ctx: Context): String? {
         if (date == null) {

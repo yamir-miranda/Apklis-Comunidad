@@ -20,6 +20,7 @@
         <item name="BackgroundComment">@style/BackgroundCommentLight</item>
         <item name="BackgroundCommentWithReply">@style/BackgroundCommentWithReplyLight</item>
         <item name="BackgroundCommentReplyEnd">@style/BackgroundCommentReplyEndLight</item>
+        <item name="BackgroundSpinnert">@style/BackgroundSpinnerLight</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -40,6 +41,7 @@
         <item name="BackgroundComment">@style/BackgroundCommentDark</item>
         <item name="BackgroundCommentWithReply">@style/BackgroundCommentWithReplyDark</item>
         <item name="BackgroundCommentReplyEnd">@style/BackgroundCommentReplyEndDark</item>
+        <item name="BackgroundSpinnert">@style/BackgroundSpinnertDark</item>
     </style>
 
     <style name="SplashThemeLight" parent="LightTheme">
@@ -140,6 +142,17 @@
 
     <style name="BackgroundCommentReplyEndDark" parent="@android:style/Widget">
         <item name="android:background">@drawable/backgroud_comment_reply_end_dark</item>
+    </style>
+
+    <!--BackgroundComment de para ambos temas-->
+    <style name="BackgroundSpinnerLight" parent="@android:style/Widget">
+        <item name="android:background">@drawable/backgroud_comment</item>
+        <item name="spinner_popup_background">@color/colorBlanco</item>
+    </style>
+
+    <style name="BackgroundSpinnertDark" parent="@style/Widget.AppCompat.Spinner.DropDown">
+        <item name="android:background">@drawable/backgroud_comment_dark</item>
+        <item name="spinner_popup_background">@color/colorTitleBarDark</item>
     </style>
 
 </resources>

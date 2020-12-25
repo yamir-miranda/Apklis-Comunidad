@@ -13,8 +13,6 @@ import cu.ymv.apklisadmintesis.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_tab_details_app.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private const val ARG_PARAM3 = "param3"
@@ -25,7 +23,6 @@ private const val ARG_PARAM3 = "param3"
  * create an instance of this fragment.
  */
 class TabDetailsAppFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var param3: String? = null
@@ -79,7 +76,6 @@ class TabDetailsAppFragment : Fragment() {
          * @param param3 Parameter 3.
          * @return A new instance of fragment TabDetailsAppFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String, param3: String) =
             TabDetailsAppFragment().apply {

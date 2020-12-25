@@ -13,4 +13,5 @@
     <attr name="BackgroundComment" format="reference" />
     <attr name="BackgroundCommentWithReply" format="reference" />
     <attr name="BackgroundCommentReplyEnd" format="reference" />
+    <attr name="BackgroundSpinnert" format="reference" />
 </resources>

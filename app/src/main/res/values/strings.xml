@@ -8,7 +8,6 @@
     <string name="usuario">Usuario</string>
     <string name="contrasenna">Contraseña</string>
     <string name="entrar">Entrar</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="time_out">El servidor demoro mucho tiempo en responder</string>
     <string name="error_desconocido">Se detecto un error desconocido, intentelo de nuevo</string>
@@ -39,4 +38,9 @@
     <string name="date_util_prefix_almost">almost</string>
 
     <string name="date_util_suffix">hace</string>
+
+    <string-array name="graficos">
+        <item>Descargas por versiones</item>
+        <item>Descargas mensuales</item>
+    </string-array>
 </resources>
