@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "cu.ymv.apklisadmintesis"
+        applicationId "cu.ymv.infodevcuba"
         minSdkVersion 19
         targetSdkVersion 30
         multiDexEnabled true
@@ -54,6 +54,10 @@ dependencies {
     implementation 'com.android.support:multidex:2.0.1'
 
     implementation "com.github.skydoves:powerspinner:1.1.5"
+
+    implementation 'com.lixs.charts:charts:1.0.7'
+
+    implementation 'com.github.hadiidbouk:ChartProgressBar-Android:2.0.6'
 
 
 

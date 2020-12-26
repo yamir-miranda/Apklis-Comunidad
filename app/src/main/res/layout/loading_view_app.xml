@@ -18,32 +18,1325 @@
             <RelativeLayout
                 style="?BackgroundLoad"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_marginTop="@dimen/_10sdp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 style="?BackgroundLoad"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_marginTop="@dimen/_10sdp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 style="?BackgroundLoad"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_marginTop="@dimen/_10sdp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 style="?BackgroundLoad"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_marginTop="@dimen/_10sdp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 style="?BackgroundLoad"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_marginTop="@dimen/_10sdp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="?BackgroundLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="?BackgroundLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="?BackgroundLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="?BackgroundLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:foreground="?android:selectableItemBackground"
+                    android:visibility="invisible"
+                    card_view:cardBackgroundColor="?colorTitleBar"
+                    card_view:cardCornerRadius="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_35sdp"
+                                android:layout_height="@dimen/_35sdp"
+                                android:src="@drawable/avatar" />
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:layout_marginLeft="@dimen/_8sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Yamir Miranda Veitia"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_3sdp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <RatingBar
+                                            style="?android:attr/ratingBarStyleSmall"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:numStars="5"
+                                            android:rating="3.9" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/_3sdp"
+                                            android:text="(36)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_9ssp" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_105sdp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_1sdp"
+                                        android:layout_marginRight="@dimen/_5sdp"
+                                        android:src="@drawable/ic_app_download"
+                                        card_view:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="10"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_20ssp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone">
+
+
+                            <Button
+
+                                style="?botonRedondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:paddingLeft="@dimen/_7sdp"
+                                android:paddingRight="@dimen/_7sdp"
+                                android:text="Abrir en la Web"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                style="?BackgroundLoad"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone" />
 
         </LinearLayout>
 

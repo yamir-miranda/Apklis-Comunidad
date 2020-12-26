@@ -1,74 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".appDetails.DownloadAppFragment">
 
-    <LinearLayout
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiStateViewDownload"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/_11sdp"
-        android:layout_marginRight="@dimen/_11sdp"
-        android:orientation="vertical">
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:animateLayoutChanges="false"
+        app:msv_errorView="@layout/error_view_download"
+        app:msv_loadingView="@layout/loading_view_download"
+        app:msv_viewState="loading">
 
-
-        <com.skydoves.powerspinner.PowerSpinnerView
-            android:id="@+id/type_of_grafic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            style="?BackgroundSpinnert"
-            android:gravity="center"
-            android:hint="Descargas por versiones"
-            android:padding="10dp"
-            android:textColor="?colorNegro"
-            android:textColorHint="?colorNegro"
-            android:textSize="14.5sp"
-            app:spinner_arrow_gravity="end"
-            app:spinner_arrow_padding="8dp"
-            app:spinner_divider_color="?colorNegro"
-            app:spinner_divider_show="true"
-            app:spinner_divider_size="0.4dp"
-            app:spinner_item_array="@array/graficos"
-            app:spinner_popup_animation="dropdown"
-            app:spinner_arrow_tint = "?colorNegro"
-            app:spinner_popup_elevation="14dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:elevation="10dp"
-            card_view:cardCornerRadius="@dimen/_10sdp">
+            android:orientation="vertical">
 
-            <com.anychart.AnyChartView
-                android:id="@+id/any_chart_view"
+            <com.hadiidbouk.charts.ChartProgressBar
+                android:id="@+id/ChartProgressBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                app:hdBarCanBeClick="true"
+                app:hdBarHeight="@dimen/_200sdp"
+                app:hdBarRadius="10dp"
+                app:hdBarTitleColor="?colorNegro"
+                app:hdBarTitleMarginTop="9dp"
+                app:hdBarTitleSelectedColor="?colorNegro"
+                app:hdBarTitleTxtSize="12sp"
+                app:hdBarWidth="@dimen/_10sdp"
+                app:hdEmptyColor="?bgColor"
+                app:hdMaxValue="10"
+                app:hdPinBackgroundColor="@color/pin_background"
+                app:hdPinDrawable="@drawable/backgroud_load_round"
+                app:hdPinMarginBottom="40dp"
+                app:hdPinMarginEnd="5dp"
+                app:hdPinMarginTop="10dp"
+                app:hdPinPaddingBottom="5dp"
+                app:hdPinTextColor="@color/pin_text"
+                app:hdPinTxtSize="17sp"
+                app:hdProgressClickColor="@color/colorPrimary2"
+                app:hdProgressColor="@color/colorPrimary"
+                app:hdProgressDisableColor="@color/progress_disable" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="descargas por versiones"
+                android:gravity="center"
+                android:textColor="?colorNegro"
+                android:textSize="@dimen/_8ssp" />
+        </LinearLayout>
 
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:layout_gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-    </LinearLayout>
-
+    </com.kennyc.view.MultiStateView>
 </FrameLayout>

@@ -19,8 +19,22 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/_10sdp">
 
-            <ImageView
+            <TextView
                 android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_35sdp"
+                android:text="Info Dev Cuba"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_7sdp"
+                android:gravity="center"
+                android:textColor="?colorNegro"
+                android:textSize="@dimen/_25ssp"
+                android:layout_gravity="start"
+                android:fontFamily="@font/helvetica_stand"/>
+
+            <ImageView
+                android:visibility="gone"
                 style="?logoImagen"
                 android:layout_width="@dimen/_155sdp"
                 android:layout_height="@dimen/_35sdp"
