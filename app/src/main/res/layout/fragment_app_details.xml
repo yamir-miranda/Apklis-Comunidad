@@ -1,19 +1,449 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".appDetails.AppDetailsFragment">
 
-
-    <LinearLayout
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/multiStateViewAppDetalles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:animateLayoutChanges="false"
+        app:msv_emptyView="@layout/empty_view_comments"
+        app:msv_errorView="@layout/error_view_detalles"
+        app:msv_loadingView="@layout/loading_view_download"
+        app:msv_viewState="loading">
 
-        <include layout="@layout/stat"/>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshDetalles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardBackgroundColor="?colorTitleBar"
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:text="Detalles"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginEnd="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="?colorNegro" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="todos los detalles de la aplicación"
+                                android:textColor="?colorNegro"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardBackgroundColor="?colorTitleBar"
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:text="Descripción"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginEnd="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="?colorNegro" />
+
+                            <TextView
+                                android:id="@+id/app_details_description"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="descripcion de la app"
+                                android:textColor="?colorNegro"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/_85sdp"
+                            android:layout_height="match_parent"
+                            app:cardBackgroundColor="?colorTitleBar"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RatingBar
+                                    android:id="@+id/app_details_start"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:numStars="5"
+                                    android:rating="0" />
+
+                                <TextView
+                                    android:id="@+id/app_details_rating"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="0"
+                                    android:textColor="?colorNegro"
+                                    android:textSize="@dimen/_25ssp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="left|center"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_person"
+                                        app:tint="?colorNegro" />
+
+                                    <TextView
+                                        android:id="@+id/app_details_reviews_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_15ssp" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            app:cardBackgroundColor="?colorTitleBar"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="5"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                    <ProgressBar
+                                        android:id="@+id/app_details_reviews_star_5_bar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_5sdp"
+                                        android:layout_weight="1"
+                                        android:max="100"
+                                        android:progress="0"
+                                        android:progressDrawable="@drawable/progress_bar" />
+
+                                    <TextView
+                                        android:id="@+id/app_details_reviews_star_5_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="0%"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="4"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                    <ProgressBar
+                                        android:id="@+id/app_details_reviews_star_4_bar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_5sdp"
+                                        android:layout_weight="1"
+                                        android:max="100"
+                                        android:progress="0"
+                                        android:progressDrawable="@drawable/progress_bar" />
+
+                                    <TextView
+                                        android:id="@+id/app_details_reviews_star_4_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="0%"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="3"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                    <ProgressBar
+                                        android:id="@+id/app_details_reviews_star_3_bar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_5sdp"
+                                        android:layout_weight="1"
+                                        android:max="100"
+                                        android:progress="0"
+                                        android:progressDrawable="@drawable/progress_bar" />
+
+                                    <TextView
+                                        android:id="@+id/app_details_reviews_star_3_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="0%"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="2"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                    <ProgressBar
+                                        android:id="@+id/app_details_reviews_star_2_bar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_5sdp"
+                                        android:layout_weight="1"
+                                        android:max="100"
+                                        android:progress="0"
+                                        android:progressDrawable="@drawable/progress_bar" />
+
+                                    <TextView
+                                        android:id="@+id/app_details_reviews_star_2_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="0%"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:visibility="visible">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="1"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                    <ProgressBar
+                                        android:id="@+id/app_details_reviews_star_1_bar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_5sdp"
+                                        android:layout_weight="1"
+                                        android:max="100"
+                                        android:progress="0"
+                                        android:progressDrawable="@drawable/progress_bar" />
+
+                                    <TextView
+                                        android:id="@+id/app_details_reviews_star_1_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:gravity="center"
+                                        android:text="0%"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_7ssp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardBackgroundColor="?colorTitleBar"
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:text="Versión Actual"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginEnd="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="?colorNegro" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="todos los datos de la version actual"
+                                android:textColor="?colorNegro"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </com.kennyc.view.MultiStateView>
+
+
 
 
 </FrameLayout>

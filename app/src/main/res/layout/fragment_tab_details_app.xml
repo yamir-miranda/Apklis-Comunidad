@@ -29,7 +29,7 @@
                     android:id="@+id/logoHome"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_35sdp"
-                    android:text="Info Dev Cuba"
+                    android:text="@string/dev_cuba"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_7sdp"
                     android:layout_marginBottom="@dimen/_7sdp"
@@ -58,8 +58,8 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/iconAppDetail"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:contentDescription="@string/imagen"
                         android:src="@drawable/avatar" />

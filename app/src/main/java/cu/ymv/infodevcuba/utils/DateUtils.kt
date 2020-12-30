@@ -52,6 +52,15 @@ class DateUtils {
         }
     }
 
+     fun parseDatetoString(date: String, format: String): Date {
+        return try {
+            SimpleDateFormat(format, Locale.US).parse(date)
+        } catch (e: Exception) {
+            Log.e("DateUtil", "Exception: " + e.message)
+            Date(0)
+        }
+    }
+
     fun formatStringeIODate(format_in: String, format_out: String, string_date: String): String {
         // format_in -> dd/MM/yyyy HH:mm:ss
         // format_out -> dd/MM/yyyy HH:mm:ss

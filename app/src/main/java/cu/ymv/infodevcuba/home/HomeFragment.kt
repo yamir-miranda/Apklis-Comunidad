@@ -55,7 +55,6 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
         root.recycler_view.layoutManager = LinearLayoutManager(requireContext())
         root.recycler_view.adapter = adapterItem
         if (adapterItem!!.itemCount > 0) {
-            Log.d(TAG, "onCreateView: " + adapterItem!!.itemCount)
             root.multiStateView.animateLayoutChanges = false
             root.multiStateView.viewState = MultiStateView.ViewState.CONTENT
         }
@@ -185,13 +184,14 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
     }
 
     override fun onAppClickListener(data: App) {
-        Log.d(TAG, "onAppClickListener: $data")
         addFragmentToFragmentBack(
             TabDetailsAppFragment.newInstance(
                 data.id.toString(),
                 data.package_name,
-                data.last_release.icon
+                data.last_release.icon,
+                data.price
             )
         )
+        Log.d(TAG, "onAppClickListener: " + data.price)
     }
 }

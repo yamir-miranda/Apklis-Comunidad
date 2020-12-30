@@ -9,7 +9,8 @@ class ViewPagerFragmentAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle,
     private val appId: String?,
-    packetName: String?
+    private val appPackage: String?,
+    private val price: Int?
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
@@ -19,10 +20,10 @@ class ViewPagerFragmentAdapter(
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
-                AppDetailsFragment()
+                AppDetailsFragment.newInstance(appPackage!!, "")
             }
             1 -> {
-                VentasAppFragment.newInstance(appId!!, "")
+                VentasAppFragment.newInstance(appId!!, price!!)
             }
             2 -> {
                 CommentsFragment.newInstance(appId!!)

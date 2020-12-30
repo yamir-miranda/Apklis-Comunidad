@@ -15,7 +15,7 @@
         android:animateLayoutChanges="false"
         app:msv_emptyView="@layout/empty_view_comments"
         app:msv_errorView="@layout/error_view_comments"
-        app:msv_loadingView="@layout/loading_view_app"
+        app:msv_loadingView="@layout/loading_comments_app"
         app:msv_viewState="content">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

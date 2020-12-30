@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_tab_details_app.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private const val ARG_PARAM3 = "param3"
+private const val ARG_PARAM4 = "param4"
 
 /**
  * A simple [Fragment] subclass.
@@ -25,6 +26,7 @@ class TabDetailsAppFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var param3: String? = null
+    private var price: Int? = 0
     private val titles =
         arrayOf("Detalles", "Ventas", "Comentarios", "Descargas", "Versiones")
 
@@ -34,6 +36,7 @@ class TabDetailsAppFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
             param3 = it.getString(ARG_PARAM3)
+            price = it.getInt(ARG_PARAM4)
         }
     }
 
@@ -59,7 +62,8 @@ class TabDetailsAppFragment : Fragment() {
             parentFragmentManager,
             requireActivity().lifecycle,
             param1,
-            param2
+            param2,
+            price
         )
         TabLayoutMediator(tabLayout, viewPager,
             TabConfigurationStrategy { tab, position -> tab.text = titles.get(position) }).attach()
@@ -73,15 +77,17 @@ class TabDetailsAppFragment : Fragment() {
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
          * @param param3 Parameter 3.
+         * @param param4 Parameter 4.
          * @return A new instance of fragment TabDetailsAppFragment.
          */
         @JvmStatic
-        fun newInstance(param1: String, param2: String, param3: String) =
+        fun newInstance(param1: String, param2: String, param3: String, param4: Int) =
             TabDetailsAppFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                     putString(ARG_PARAM3, param3)
+                    putInt(ARG_PARAM4, param4)
                 }
             }
     }

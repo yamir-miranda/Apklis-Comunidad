@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Info Dev Cuba</string>
+    <string name="app_name">Dev Cuba</string>
     <string name="imagen">imagen</string>
     <string name="credenciales_incorrectas">Credenciales Incorrectas</string>
     <string name="campo_obligatorio">campo obligatorio</string>
@@ -38,6 +38,7 @@
     <string name="date_util_prefix_almost">almost</string>
 
     <string name="date_util_suffix">hace</string>
+    <string name="dev_cuba">Dev Cuba</string>
 
     <string-array name="graficos">
         <item>Descargas por versiones</item>
