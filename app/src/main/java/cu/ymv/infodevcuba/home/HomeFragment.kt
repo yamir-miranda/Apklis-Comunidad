@@ -18,6 +18,7 @@ import cu.ymv.infodevcuba.PrefrenceFragment
 import cu.ymv.infodevcuba.R
 import cu.ymv.infodevcuba.appDetails.TabDetailsAppFragment
 import cu.ymv.infodevcuba.login.LoginFragment
+import cu.ymv.infodevcuba.misGanancias.MisGananciasFragment
 import cu.ymv.infodevcuba.models.App
 import cu.ymv.infodevcuba.models.AppListResponse
 import cu.ymv.infodevcuba.models.User
@@ -81,7 +82,7 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        userImg.setOnClickListener {
+        mi_cuenta.setOnClickListener {
             addFragmentToFragmentBack(UserFragment())
         }
         loadApp(false)
@@ -91,7 +92,11 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
             loadApp(true)
         }
 
-        logoHome.setOnClickListener {
+        view_mis_ganancias.setOnClickListener {
+            addFragmentToFragmentBack(MisGananciasFragment())
+        }
+
+        ajustes.setOnClickListener {
             addFragmentToFragmentBack(PrefrenceFragment())
         }
     }

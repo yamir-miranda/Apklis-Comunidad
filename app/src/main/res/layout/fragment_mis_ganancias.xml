@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".appDetails.VentasAppFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/superior"
+            style="?barraTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/logoPreference"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_7sdp"
+                android:fontFamily="@font/helvetica_stand"
+                android:gravity="center"
+                android:text="@string/dev_cuba"
+                android:textColor="?colorNegro"
+                android:textSize="@dimen/_25ssp" />
+
+            <ImageView
+                style="?logoImagen"
+                android:layout_width="@dimen/_155sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_7sdp"
+                android:contentDescription="@string/imagen"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImgPreference"
+                    android:visibility="gone"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:contentDescription="@string/imagen"
+                    android:src="@drawable/avatar" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/sin_soporte_ventas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Aplicación Gratis"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorNegro"
+                    android:textSize="@dimen/_20ssp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/multiStateViewReportVentas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:animateLayoutChanges="false"
+            android:visibility="gone"
+            app:msv_emptyView="@layout/empty_view_comments"
+            app:msv_errorView="@layout/error_view_ventas"
+            app:msv_loadingView="@layout/loading_view_download"
+            app:msv_viewState="loading">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshReportVentas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/buttom_reporte"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            app:cardBackgroundColor="?colorTitleBar"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_11sdp"
+                                android:orientation="vertical">
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:layout_marginEnd="@dimen/_11sdp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_11sdp"
+                                        android:text="Fecha de Reporte"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_13sdp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="end"
+                                        android:layout_marginRight="@dimen/_10sdp"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/_14sdp"
+                                            android:layout_height="@dimen/_14sdp"
+                                            android:layout_marginRight="@dimen/_15sdp"
+                                            android:src="@drawable/ic_calendar"
+                                            app:tint="?colorNegro" />
+
+                                        <ProgressBar
+                                            android:id="@+id/ventas_progress_bar"
+                                            android:layout_width="@dimen/_16sdp"
+                                            android:layout_height="@dimen/_16sdp"
+                                            android:visibility="invisible" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginEnd="@dimen/_11sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:background="?colorNegro" />
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Fecha de Inicio"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_fecha_inicio"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="01/12/2020"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Fecha Final"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_fecha_final"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="31/12/2020"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_10sdp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Días de Reporte"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_dias_reporte"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="31"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            app:cardBackgroundColor="?colorTitleBar"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_11sdp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:layout_marginEnd="@dimen/_11sdp"
+                                    android:text="Resumen de Venta"
+                                    android:textColor="?colorNegro"
+                                    android:textSize="@dimen/_13sdp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginEnd="@dimen/_11sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:background="?colorNegro" />
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Cantidad de Ventas"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_cantidad_ventas"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="1000 CUP"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Total de Ventas"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_total_ventas"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="1000 CUP"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Impuesto de Venta(-30%)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_impuesto"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="300 CUP"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Impuesto ONAT(-5% ~ 3,5%)"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_onat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="50 CUP"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:layout_marginBottom="@dimen/_6sdp"
+                                    android:background="?colorNegro" />
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_10sdp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left|center"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Monto a cobrar"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_11ssp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right|center"
+                                        android:gravity="left|center"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <TextView
+                                            android:id="@+id/ventas_monto"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="650 CUP"
+                                            android:textColor="?colorNegro"
+                                            android:textSize="@dimen/_12ssp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                </FrameLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            app:cardBackgroundColor="?colorTitleBar"
+                            app:cardCornerRadius="@dimen/_15sdp"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_11sdp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_6sdp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_10sdp"
+                                        android:layout_marginEnd="@dimen/_11sdp"
+                                        android:text="Ventas por días"
+                                        android:textColor="?colorNegro"
+                                        android:textSize="@dimen/_13sdp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginEnd="@dimen/_11sdp"
+                                    android:layout_marginRight="@dimen/_10sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:background="?colorNegro" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycler_ReportGanancias"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/sin_ventas_ganancias"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:padding="@dimen/_9sdp"
+                                    android:text="sin ventas en el periodo selecionado"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorNegro"
+                                    android:textSize="@dimen/_11ssp"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </com.kennyc.view.MultiStateView>
+    </LinearLayout>
+</FrameLayout>

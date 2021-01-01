@@ -1,4 +1,4 @@
-package cu.ymv.infodevcuba.appDetails
+package cu.ymv.infodevcuba.misGanancias
 
 import android.os.Bundle
 import android.util.Log
@@ -23,31 +23,48 @@ import cu.ymv.infodevcuba.models.User
 import cu.ymv.infodevcuba.utils.MyPreferences
 import cu.ymv.infodevcuba.utils.NetworkManager
 import cu.ymv.infodevcuba.webservices.VolleySingleton
+import kotlinx.android.synthetic.main.fragment_mis_ganancias.*
+import kotlinx.android.synthetic.main.fragment_mis_ganancias.view.*
 import kotlinx.android.synthetic.main.fragment_ventas_app.*
+import kotlinx.android.synthetic.main.fragment_ventas_app.buttom_reporte
+import kotlinx.android.synthetic.main.fragment_ventas_app.multiStateViewReportVentas
+import kotlinx.android.synthetic.main.fragment_ventas_app.swipeRefreshReportVentas
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_dias_reporte
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_fecha_final
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_fecha_inicio
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_impuesto
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_monto
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_onat
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_progress_bar
+import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_total_ventas
 import kotlinx.android.synthetic.main.fragment_ventas_app.view.*
+import kotlinx.android.synthetic.main.fragment_ventas_app.view.multiStateViewReportVentas
+import kotlinx.android.synthetic.main.fragment_ventas_app.view.sin_soporte_ventas
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
+import cu.ymv.infodevcuba.models.MisGananciasResponse as MisGananciasResponse1
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private const val TAG = "MisGanancias"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [VentasAppFragment.newInstance] factory method to
+ * Use the [MisGananciasFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class VentasAppFragment : Fragment(), MultiStateView.StateListener {
+class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
     private var param1: String? = null
     private var param2: Int? = null
     private var global_fecha_inicio: String? = null
     private var global_fecha_final: String? = null
     var userObject: User? = null
-    var adapterReportVentas: VentasAdapter? = null
+    var adapterReportMisGanancias: MisGananciasAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +78,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
             userObject =
                 Gson().fromJson(MyPreferences(requireContext()).userObject, User::class.java)
         }
-        adapterReportVentas = VentasAdapter(
+        adapterReportMisGanancias = MisGananciasAdapter(
             requireContext(),
             userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token, userObject!!
         )
@@ -71,15 +88,15 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_ventas_app, container, false)
+        val root = inflater.inflate(R.layout.fragment_mis_ganancias, container, false)
         if (param2 == 0) {
             root.sin_soporte_ventas.visibility = View.VISIBLE
         } else {
             root.multiStateViewReportVentas.visibility = View.VISIBLE
         }
-        root.recycler_ReportVentas.layoutManager = LinearLayoutManager(requireContext())
-        root.recycler_ReportVentas.adapter = adapterReportVentas
-        if (adapterReportVentas!!.itemCount > 0) {
+        root.recycler_ReportGanancias.layoutManager = LinearLayoutManager(requireContext())
+        root.recycler_ReportGanancias.adapter = adapterReportMisGanancias
+        if (adapterReportMisGanancias!!.itemCount > 0) {
             root.multiStateViewReportVentas.animateLayoutChanges = false
             root.multiStateViewReportVentas.viewState = MultiStateView.ViewState.CONTENT
         }
@@ -179,7 +196,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
          */
         @JvmStatic
         fun newInstance(param1: String, param2: Int) =
-            VentasAppFragment().apply {
+            MisGananciasFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putInt(ARG_PARAM2, param2)
@@ -198,41 +215,42 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
             multiStateViewReportVentas.viewState = MultiStateView.ViewState.LOADING
         }
         val url =
-            "https://api.apklis.cu/v1/payment/?seller__user=" + userObject!!.username + "&limit=1000&offset=0&date__gte=" + global_fecha_inicio + "&date__lte=" + global_fecha_final + " 23:59&state=SUCCESS&products__external_id=" + param1
+            "https://api.apklis.cu/v1/payment/sales/?lte="+global_fecha_final+" 23:59&gte=" + global_fecha_inicio + "&user="+ userObject!!.username
         val stringRequest: StringRequest = object : StringRequest(Method.GET, url,
             Response.Listener { response ->
                 val byte: ByteArray = response.toByteArray(charset("ISO-8859-1"))
-                val downloadObject =
+                val gananciasObject =
                     Gson().fromJson(
                         String(byte, charset("UTF-8")),
-                        AppReportVentasResponse::class.java
+                        Array<MisGananciasResponse1>::class.java
                     )
-                var importeTotal = 0
-                val sales: ArrayList<ReportVentas> = ArrayList()
-                for (element in downloadObject.results) {
-                    importeTotal += element.ammount
-                    sales.add(ReportVentas(element.bank, element.buyer, element.date))
-                }
-                sales.reverse()
-                if (sales.size == 0) {
-                    recycler_ReportVentas.visibility = View.GONE
-                    sin_ventas.visibility = View.VISIBLE
+                val list = ArrayList<MisGananciasResponse1>()
+                list.addAll(gananciasObject)
+                if (list.size == 0) {
+                    recycler_ReportGanancias.visibility = View.GONE
+                    sin_ventas_ganancias.visibility = View.VISIBLE
                 } else {
-                    sin_ventas.visibility = View.GONE
-                    recycler_ReportVentas.visibility = View.VISIBLE
+                    sin_ventas_ganancias.visibility = View.GONE
+                    recycler_ReportGanancias.visibility = View.VISIBLE
                 }
-                adapterReportVentas!!.setData(sales)
-                val text = "(" + sales.size.toString() + ")"
-                ventas_cantidad.text = text
-                val text_total = roundOffDecimal(importeTotal.toDouble()).toString() + " CUP"
+                adapterReportMisGanancias!!.setData(list)
+                var importeTotal = 0.00
+                var cantidad_ventas= 0
+                for (element in gananciasObject) {
+                    importeTotal += element.ammount
+                    cantidad_ventas+= element.sales
+                }
+                ventas_cantidad_ventas.text = cantidad_ventas.toString()
+                val text_total = roundOffDecimal(importeTotal).toString() + " CUP"
                 ventas_total_ventas.text = text_total
                 val text_impuesto = roundOffDecimal(importeTotal * 0.30).toString() + " CUP"
                 ventas_impuesto.text = text_impuesto
                 val text_onat = roundOffDecimal(importeTotal * 0.035).toString() + " CUP"
                 ventas_onat.text = text_onat
                 val text_monto =
-                    roundOffDecimal(importeTotal - ((importeTotal * 0.035) + (importeTotal * 0.30))).toString() + " CUP"
+                    roundOffDecimal(importeTotal * 0.665).toString() + " CUP"
                 ventas_monto.text = text_monto
+                Log.d(TAG, "loadDataApi: $importeTotal")
                 multiStateViewReportVentas.viewState = MultiStateView.ViewState.CONTENT
                 swipeRefreshReportVentas.isRefreshing = false
                 ventas_progress_bar.visibility = View.INVISIBLE

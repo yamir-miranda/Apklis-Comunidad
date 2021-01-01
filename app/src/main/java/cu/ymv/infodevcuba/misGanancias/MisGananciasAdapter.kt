@@ -1,4 +1,4 @@
-package cu.ymv.infodevcuba.appDetails
+package cu.ymv.infodevcuba.misGanancias
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,20 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import cu.ymv.infodevcuba.R
-import cu.ymv.infodevcuba.models.ReportVentas
+import cu.ymv.infodevcuba.models.MisGananciasResponse
 import cu.ymv.infodevcuba.models.User
 import cu.ymv.infodevcuba.utils.DateUtils
-import kotlinx.android.synthetic.main.adapter_item_ventas.view.*
+import kotlinx.android.synthetic.main.adapter_item_mis_ganancias.view.*
 
 
-class VentasAdapter(
+class MisGananciasAdapter(
     private val context: Context, private val tokens: String, private val userObj: User
 ) :
-    RecyclerView.Adapter<VentasAdapter.BaseViewHolder<*>>() {
-    private var data: ArrayList<ReportVentas> = ArrayList()
-    val TAG = "VentasAdapter"
+    RecyclerView.Adapter<MisGananciasAdapter.BaseViewHolder<*>>() {
+    private var data: ArrayList<MisGananciasResponse> = ArrayList()
+    val TAG = "GananciasAdapter"
 
     companion object {
         private const val TYPE_VENTAS_ITEM = 0
@@ -29,33 +28,16 @@ class VentasAdapter(
         abstract fun bind(item: T)
     }
 
-    inner class ReportVentasViewHolder(itemView: View) : BaseViewHolder<ReportVentas>(itemView) {
+    inner class ReportVentasViewHolder(itemView: View) :
+        BaseViewHolder<MisGananciasResponse>(itemView) {
 
-        override fun bind(item: ReportVentas) {
-            itemView.ventasNumber.text = "+53 5 *******"
-            itemView.ventasDate.text = DateUtils().getTimeAgo(
-                DateUtils().loadDateofString(
-                    "yyyy-MM-dd'T'HH:mm:ss",
-                    item.date
-                ), itemView.context
-            )
-            when (item.bank) {
-                1 -> {
-                    Glide.with(itemView.context)
-                        .load(R.drawable.banco_bpa)
-                        .into(itemView.ventasImagen)
-                }
-                2 -> {
-                    Glide.with(itemView.context)
-                        .load(R.drawable.banco_bandec)
-                        .into(itemView.ventasImagen)
-                }
-                3 -> {
-                    Glide.with(itemView.context)
-                        .load(R.drawable.banco_metropolitano)
-                        .into(itemView.ventasImagen)
-                }
-            }
+        override fun bind(item: MisGananciasResponse) {
+            itemView.gananciasFecha.text =
+                DateUtils().formatStringDate("yyyy-MM-dd", "dd/MM/yyyy", item.day)
+            val text1 = item.ammount.toString() + " CUP"
+            itemView.gananciasImporte.text = text1
+            val text2 = item.sales.toString() + " Ventas"
+            itemView.gananciasVentas.text = text2
         }
     }
 
@@ -63,7 +45,7 @@ class VentasAdapter(
         return when (viewType) {
             TYPE_VENTAS_ITEM -> {
                 val view = LayoutInflater.from(context)
-                    .inflate(R.layout.adapter_item_ventas, parent, false)
+                    .inflate(R.layout.adapter_item_mis_ganancias, parent, false)
                 ReportVentasViewHolder(view)
             }
             else -> throw IllegalArgumentException("Invalid view type")
@@ -73,14 +55,14 @@ class VentasAdapter(
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         val element = data[position]
         when (holder) {
-            is ReportVentasViewHolder -> holder.bind(element as ReportVentas)
+            is ReportVentasViewHolder -> holder.bind(element as MisGananciasResponse)
             else -> throw IllegalArgumentException()
         }
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (data[position]) {
-            is ReportVentas -> TYPE_VENTAS_ITEM
+            is MisGananciasResponse -> TYPE_VENTAS_ITEM
             else -> throw IllegalArgumentException("Invalid type of data $position")
         }
     }
@@ -89,7 +71,7 @@ class VentasAdapter(
         return data.size
     }
 
-    fun setData(data: ArrayList<ReportVentas>) {
+    fun setData(data: ArrayList<MisGananciasResponse>) {
         this.data = data
         notifyDataSetChanged()
     }

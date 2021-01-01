@@ -41,7 +41,7 @@ class UserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        logOut.setOnClickListener {
+        exit.setOnClickListener {
             val builder = AlertDialog.Builder(view.context)
             builder.setTitle("Cerrar Sección")
             builder.setMessage("Usted esta seguro que desea cerrar la sección")
@@ -59,15 +59,7 @@ class UserFragment : Fragment() {
             builder.show()
         }
 
-        userImgUser.setOnClickListener {
-            (activity as MainActivity).onBackPressed()
-        }
 
-        Glide.with(requireContext())
-            .load(userObject?.avatar)
-            .placeholder(R.drawable.avatar)
-            .error(R.drawable.avatar)
-            .into(userImgUser)
         Glide.with(requireContext())
             .load(userObject?.avatar)
             .placeholder(R.drawable.avatar)

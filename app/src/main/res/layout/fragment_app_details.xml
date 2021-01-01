@@ -89,6 +89,90 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_6sdp"
+                                android:text="Categorias"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginEnd="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="?colorNegro" />
+
+                            <TextView
+                                android:id="@+id/app_details_categorias"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="todos los detalles de la aplicación"
+                                android:textColor="?colorNegro"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_arquitectura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="?colorTitleBar"
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:text="Arquitecturas"
+                                android:textColor="?colorNegro"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginEnd="@dimen/_11sdp"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:background="?colorNegro" />
+
+                            <TextView
+                                android:id="@+id/app_details_arquitecturas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="todos los detalles de la aplicación"
+                                android:textColor="?colorNegro"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardBackgroundColor="?colorTitleBar"
+                        app:cardCornerRadius="@dimen/_15sdp"
+                        app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_6sdp"
                                 android:text="Descripción"
                                 android:textColor="?colorNegro"
                                 android:textSize="@dimen/_13sdp"

@@ -22,6 +22,7 @@ import cu.ymv.infodevcuba.utils.NetworkManager
 import cu.ymv.infodevcuba.webservices.VolleySingleton
 import kotlinx.android.synthetic.main.fragment_app_details.*
 import kotlinx.android.synthetic.main.fragment_ventas_app.*
+import java.lang.StringBuilder
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -155,6 +156,22 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
                     val porc1Text = "$porc1 %"
                     app_details_reviews_star_1_bar.progress = porc1
                     app_details_reviews_star_1_text.text = porc1Text
+
+                    val categories = StringBuilder()
+                    for(categoria in appObject.categories){
+                        categories.append(categoria.name + "/ ")
+                    }
+                    app_details_categorias.text = categories.toString()
+
+                    if (appObject.last_release.abi.size !=0){
+                        card_arquitectura.visibility = View.VISIBLE
+                        val arquitecturas = StringBuilder()
+                        for(arquitc in appObject.last_release.abi){
+                            arquitecturas.append(arquitc.abi + "/ ")
+                        }
+                        app_details_arquitecturas.text = arquitecturas.toString()
+                    }
+
                 }
 
 

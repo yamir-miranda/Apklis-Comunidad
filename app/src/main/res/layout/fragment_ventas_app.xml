@@ -61,6 +61,7 @@
                     android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttom_reporte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -74,7 +75,6 @@
                     android:layout_marginLeft="@dimen/_11sdp"
                     android:orientation="vertical">
                     <FrameLayout
-                        android:id="@+id/buttom_reporte"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_6sdp"
@@ -443,6 +443,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     app:cardBackgroundColor="?colorTitleBar"
                     app:cardCornerRadius="@dimen/_15sdp"
                     app:cardElevation="0dp">
