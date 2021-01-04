@@ -43,7 +43,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class VentasAppFragment : Fragment(), MultiStateView.StateListener {
     private var param1: String? = null
-    private var param2: Int? = null
+    private var param2: Double? = null
     private var global_fecha_inicio: String? = null
     private var global_fecha_final: String? = null
     var userObject: User? = null
@@ -53,7 +53,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
-            param2 = it.getInt(ARG_PARAM2)
+            param2 = it.getDouble(ARG_PARAM2)
         }
         if (MyPreferences(requireContext()).userObject == "") {
             addFragmentToFragment(LoginFragment())
@@ -72,7 +72,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_ventas_app, container, false)
-        if (param2 == 0) {
+        if (param2 == 0.00) {
             root.sin_soporte_ventas.visibility = View.VISIBLE
         } else {
             root.multiStateViewReportVentas.visibility = View.VISIBLE
@@ -159,7 +159,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
             ventas_progress_bar.visibility = View.VISIBLE
             loadDataApi(false)
         }
-        if (param2 != 0) {
+        if (param2 != 0.00) {
             loadDataApi(false)
         }
 
@@ -178,11 +178,11 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
          * @return A new instance of fragment VersionAppFragment.
          */
         @JvmStatic
-        fun newInstance(param1: String, param2: Int) =
+        fun newInstance(param1: String, param2: Double) =
             VentasAppFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
-                    putInt(ARG_PARAM2, param2)
+                    putDouble(ARG_PARAM2, param2)
                 }
             }
     }
@@ -207,7 +207,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
                         String(byte, charset("UTF-8")),
                         AppReportVentasResponse::class.java
                     )
-                var importeTotal = 0
+                var importeTotal = 0.00
                 val sales: ArrayList<ReportVentas> = ArrayList()
                 for (element in downloadObject.results) {
                     importeTotal += element.ammount

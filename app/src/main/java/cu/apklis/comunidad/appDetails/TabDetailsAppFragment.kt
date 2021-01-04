@@ -26,7 +26,7 @@ class TabDetailsAppFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var param3: String? = null
-    private var price: Int? = 0
+    private var price: Double? = 0.00
     private val titles =
         arrayOf("Detalles", "Ventas", "Comentarios", "Descargas")
 
@@ -36,7 +36,7 @@ class TabDetailsAppFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
             param3 = it.getString(ARG_PARAM3)
-            price = it.getInt(ARG_PARAM4)
+            price = it.getDouble(ARG_PARAM4)
         }
     }
 
@@ -81,13 +81,13 @@ class TabDetailsAppFragment : Fragment() {
          * @return A new instance of fragment TabDetailsAppFragment.
          */
         @JvmStatic
-        fun newInstance(param1: String, param2: String, param3: String, param4: Int) =
+        fun newInstance(param1: String, param2: String, param3: String, param4: Double) =
             TabDetailsAppFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                     putString(ARG_PARAM3, param3)
-                    putInt(ARG_PARAM4, param4)
+                    putDouble(ARG_PARAM4, param4)
                 }
             }
     }

@@ -20,7 +20,7 @@ data class Results (
     val external_id : String,
     val bank_id : String,
     val bank : Int,
-    val ammount : Int,
+    val ammount : Double,
     val date : String,
     val state : String,
     val send : Boolean

@@ -10,7 +10,7 @@ class ViewPagerFragmentAdapter(
     lifecycle: Lifecycle,
     private val appId: String?,
     private val appPackage: String?,
-    private val price: Int?
+    private val price: Double?
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {

@@ -23,14 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         if (MyPreferences(this).userObject == "") {
             addFragmentToActivity(LoginFragment())
         } else {
             addFragmentToActivity(HomeFragment())
         }
 
-       /* if (MyPreferences(this).Paid) {
+        if (MyPreferences(this).Paid) {
             if (MyPreferences(this).userObject == "") {
                 addFragmentToActivity(LoginFragment())
             } else {
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 MyPreferences(this).Paid = false
                 addFragmentToActivity(PaidCheckFragment.newInstance(theme, ""))
             }
-        }*/
+        }
     }
 
     fun addFragmentToActivity(fragment: Fragment?) {

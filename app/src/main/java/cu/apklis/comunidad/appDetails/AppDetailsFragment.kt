@@ -123,6 +123,7 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
 
                 var description = appObject.description
                 description = description.replace("<p>&nbsp;</p>", "")
+                description = description.replace("&nbsp;", "")
                 description = description.replace("</p>", "\n")
                 description = description.replace("<p>", "")
                 app_details_description?.text = description
