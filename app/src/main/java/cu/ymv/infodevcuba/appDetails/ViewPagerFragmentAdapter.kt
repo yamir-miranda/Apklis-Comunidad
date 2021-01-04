@@ -14,7 +14,7 @@ class ViewPagerFragmentAdapter(
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
-        return 5
+        return 4
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -31,11 +31,8 @@ class ViewPagerFragmentAdapter(
             3-> {
                 DownloadAppFragment.newInstance(appId!!, "")
             }
-            4 -> {
-                VersionAppFragment()
-            }
             else -> {
-                AppDetailsFragment()
+                AppDetailsFragment.newInstance(appPackage!!, "")
             }
         }
     }

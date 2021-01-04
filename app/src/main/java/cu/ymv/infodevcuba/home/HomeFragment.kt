@@ -126,11 +126,9 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
             val userRequest: StringRequest = object : StringRequest(Method.GET, urlUser,
                 Response.Listener { response ->
                     val appListObject = Gson().fromJson(response, AppListResponse::class.java)
-                    adapterItem!!.setAppList(appListObject.results)
-                    multiStateView.viewState = MultiStateView.ViewState.CONTENT
-                    if (swipeRefresh != null) {
-                        swipeRefresh.isRefreshing = false
-                    }
+                    adapterItem?.setAppList(appListObject.results)
+                    multiStateView?.viewState = MultiStateView.ViewState.CONTENT
+                    swipeRefresh?.isRefreshing = false
                 }, Response.ErrorListener { error ->
                     when (error) {
                         is AuthFailureError -> {
@@ -151,16 +149,17 @@ class HomeFragment : Fragment(), MultiStateView.StateListener, ItemAdapter.AppCl
                             error.printStackTrace()
                         }
                     }
-                    multiStateView.viewState = MultiStateView.ViewState.ERROR
-                    if (swipeRefresh != null) {
-                        swipeRefresh.isRefreshing = false
-                    }
+                    multiStateView?.viewState = MultiStateView.ViewState.ERROR
+                    swipeRefresh?.isRefreshing = false
                 }) {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()
                     headers["Authorization"] =
                         userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token
-                    Log.d(TAG, "getHeaders: " + userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token)
+                    Log.d(
+                        TAG,
+                        "getHeaders: " + userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token
+                    )
                     return headers
                 }
 

@@ -118,8 +118,8 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
         ventas_fecha_final.text = text2
         val millionSeconds = now.timeInMillis - fecha_inicio.timeInMillis
         val days_diff = java.util.concurrent.TimeUnit.MILLISECONDS.toDays(millionSeconds) + 1
-        var text3 = ""
-        text3 = if (days_diff.toInt() == 1) {
+
+        var text3 = if (days_diff.toInt() == 1) {
             "$days_diff día"
         } else {
             "$days_diff días"
@@ -129,7 +129,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
         builder.setSelection(androidx.core.util.Pair(fecha_inicio.timeInMillis, now.timeInMillis))
         val picker = builder.build()
         buttom_reporte.setOnClickListener {
-            if (!picker.isVisible){
+            if (!picker.isVisible) {
                 picker.show(activity?.supportFragmentManager!!, picker.toString())
             }
         }
@@ -195,7 +195,7 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
 
     private fun loadDataApi(loading: Boolean) {
         if (loading) {
-            multiStateViewReportVentas.viewState = MultiStateView.ViewState.LOADING
+            multiStateViewReportVentas?.viewState = MultiStateView.ViewState.LOADING
         }
         val url =
             "https://api.apklis.cu/v1/payment/?seller__user=" + userObject!!.username + "&limit=1000&offset=0&date__gte=" + global_fecha_inicio + "&date__lte=" + global_fecha_final + " 23:59&state=SUCCESS&products__external_id=" + param1
@@ -215,27 +215,28 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
                 }
                 sales.reverse()
                 if (sales.size == 0) {
-                    recycler_ReportVentas.visibility = View.GONE
-                    sin_ventas.visibility = View.VISIBLE
+                    recycler_ReportVentas?.visibility = View.GONE
+                    sin_ventas?.visibility = View.VISIBLE
                 } else {
-                    sin_ventas.visibility = View.GONE
-                    recycler_ReportVentas.visibility = View.VISIBLE
+                    sin_ventas?.visibility = View.GONE
+                    recycler_ReportVentas?.visibility = View.VISIBLE
+
                 }
-                adapterReportVentas!!.setData(sales)
+                adapterReportVentas?.setData(sales)
                 val text = "(" + sales.size.toString() + ")"
-                ventas_cantidad.text = text
+                ventas_cantidad?.text = text
                 val text_total = roundOffDecimal(importeTotal.toDouble()).toString() + " CUP"
-                ventas_total_ventas.text = text_total
+                ventas_total_ventas?.text = text_total
                 val text_impuesto = roundOffDecimal(importeTotal * 0.30).toString() + " CUP"
-                ventas_impuesto.text = text_impuesto
+                ventas_impuesto?.text = text_impuesto
                 val text_onat = roundOffDecimal(importeTotal * 0.035).toString() + " CUP"
-                ventas_onat.text = text_onat
+                ventas_onat?.text = text_onat
                 val text_monto =
                     roundOffDecimal(importeTotal - ((importeTotal * 0.035) + (importeTotal * 0.30))).toString() + " CUP"
-                ventas_monto.text = text_monto
-                multiStateViewReportVentas.viewState = MultiStateView.ViewState.CONTENT
-                swipeRefreshReportVentas.isRefreshing = false
-                ventas_progress_bar.visibility = View.INVISIBLE
+                ventas_monto?.text = text_monto
+                multiStateViewReportVentas?.viewState = MultiStateView.ViewState.CONTENT
+                swipeRefreshReportVentas?.isRefreshing = false
+                ventas_progress_bar?.visibility = View.INVISIBLE
 
             }, Response.ErrorListener { error ->
                 when (error) {
@@ -257,11 +258,9 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
                         error.printStackTrace()
                     }
                 }
-                multiStateViewReportVentas.viewState = MultiStateView.ViewState.ERROR
-                if (swipeRefreshReportVentas != null) {
-                    swipeRefreshReportVentas.isRefreshing = false
-                }
-                ventas_progress_bar.visibility = View.INVISIBLE
+                multiStateViewReportVentas?.viewState = MultiStateView.ViewState.ERROR
+                swipeRefreshReportVentas?.isRefreshing = false
+                ventas_progress_bar?.visibility = View.INVISIBLE
             }) {
 
             override fun getHeaders(): MutableMap<String, String> {

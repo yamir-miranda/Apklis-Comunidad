@@ -91,7 +91,7 @@
         </RelativeLayout>
 
         <com.kennyc.view.MultiStateView
-            android:id="@+id/multiStateViewReportVentas"
+            android:id="@+id/multiStateViewGanancias"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/_10sdp"

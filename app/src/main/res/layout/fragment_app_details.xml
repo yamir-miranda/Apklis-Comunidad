@@ -37,6 +37,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:cardBackgroundColor="?colorTitleBar"
+                        android:visibility="gone"
                         app:cardCornerRadius="@dimen/_15sdp"
                         app:cardElevation="0dp">
                         <LinearLayout
@@ -483,6 +484,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:visibility="gone"
                         app:cardBackgroundColor="?colorTitleBar"
                         app:cardCornerRadius="@dimen/_15sdp"
                         app:cardElevation="0dp">

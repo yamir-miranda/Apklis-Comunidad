@@ -122,9 +122,9 @@ class CommentsFragment : Fragment(), MultiStateView.StateListener {
 
     private fun loadComments(reload: Boolean) {
         if (adapterComments!!.itemCount == 0 || reload) {
-            multiStateViewComments.animateLayoutChanges = true
+            multiStateViewComments?.animateLayoutChanges = true
             if (!reload) {
-                multiStateViewComments.viewState = MultiStateView.ViewState.LOADING
+                multiStateViewComments?.viewState = MultiStateView.ViewState.LOADING
             }
             val urlCommentsApp =
                 "https://api.apklis.cu/v1/review/?application=$app_id&limit=10000&ordering=-published"
@@ -182,22 +182,17 @@ class CommentsFragment : Fragment(), MultiStateView.StateListener {
                                         )
                                     )
                                 }
-
                             }
                         }
                     }
                     if (commentsData.isEmpty()) {
-                        multiStateViewComments.viewState = MultiStateView.ViewState.EMPTY
+                        multiStateViewComments?.viewState = MultiStateView.ViewState.EMPTY
                     } else {
-                        adapterComments!!.setData(commentsData)
-                        multiStateViewComments.viewState = MultiStateView.ViewState.CONTENT
-                        multiStateViewComments.animateLayoutChanges = false
+                        adapterComments?.setData(commentsData)
+                        multiStateViewComments?.viewState = MultiStateView.ViewState.CONTENT
+                        multiStateViewComments?.animateLayoutChanges = false
                     }
-
-
-                    if (swipeRefreshComments != null) {
-                        swipeRefreshComments.isRefreshing = false
-                    }
+                    swipeRefreshComments?.isRefreshing = false
                 }, Response.ErrorListener { error ->
                     when (error) {
                         is AuthFailureError -> {
@@ -214,15 +209,12 @@ class CommentsFragment : Fragment(), MultiStateView.StateListener {
                         }
                         else -> {
                             Log.d(TAG, "LoginUser: error desconocido y no procesado")
-                            // show error desconocido
                             error.printStackTrace()
                         }
                     }
                     adapterComments!!.cleaData()
-                    multiStateViewComments.viewState = MultiStateView.ViewState.ERROR
-                    if (swipeRefreshComments != null) {
-                        swipeRefreshComments.isRefreshing = false
-                    }
+                    multiStateViewComments?.viewState = MultiStateView.ViewState.ERROR
+                    swipeRefreshComments?.isRefreshing = false
                 }) {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()

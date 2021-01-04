@@ -17,29 +17,13 @@ import com.kennyc.view.MultiStateView
 import cu.ymv.infodevcuba.MainActivity
 import cu.ymv.infodevcuba.R
 import cu.ymv.infodevcuba.login.LoginFragment
-import cu.ymv.infodevcuba.models.AppReportVentasResponse
-import cu.ymv.infodevcuba.models.ReportVentas
 import cu.ymv.infodevcuba.models.User
 import cu.ymv.infodevcuba.utils.MyPreferences
 import cu.ymv.infodevcuba.utils.NetworkManager
 import cu.ymv.infodevcuba.webservices.VolleySingleton
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.*
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.view.*
-import kotlinx.android.synthetic.main.fragment_ventas_app.*
-import kotlinx.android.synthetic.main.fragment_ventas_app.buttom_reporte
-import kotlinx.android.synthetic.main.fragment_ventas_app.multiStateViewReportVentas
-import kotlinx.android.synthetic.main.fragment_ventas_app.swipeRefreshReportVentas
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_dias_reporte
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_fecha_final
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_fecha_inicio
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_impuesto
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_monto
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_onat
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_progress_bar
-import kotlinx.android.synthetic.main.fragment_ventas_app.ventas_total_ventas
-import kotlinx.android.synthetic.main.fragment_ventas_app.view.*
-import kotlinx.android.synthetic.main.fragment_ventas_app.view.multiStateViewReportVentas
-import kotlinx.android.synthetic.main.fragment_ventas_app.view.sin_soporte_ventas
+
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -92,13 +76,13 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
         if (param2 == 0) {
             root.sin_soporte_ventas.visibility = View.VISIBLE
         } else {
-            root.multiStateViewReportVentas.visibility = View.VISIBLE
+            root.multiStateViewGanancias.visibility = View.VISIBLE
         }
         root.recycler_ReportGanancias.layoutManager = LinearLayoutManager(requireContext())
         root.recycler_ReportGanancias.adapter = adapterReportMisGanancias
         if (adapterReportMisGanancias!!.itemCount > 0) {
-            root.multiStateViewReportVentas.animateLayoutChanges = false
-            root.multiStateViewReportVentas.viewState = MultiStateView.ViewState.CONTENT
+            root.multiStateViewGanancias.animateLayoutChanges = false
+            root.multiStateViewGanancias.viewState = MultiStateView.ViewState.CONTENT
         }
         return root
     }
@@ -106,8 +90,8 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        multiStateViewReportVentas.listener = this
-        multiStateViewReportVentas.getView(MultiStateView.ViewState.ERROR)
+        multiStateViewGanancias.listener = this
+        multiStateViewGanancias.getView(MultiStateView.ViewState.ERROR)
             ?.findViewById<Button>(R.id.btnRetryVentas)
             ?.setOnClickListener {
                 if (!NetworkManager().isNetworkAvailable(requireContext())) {
@@ -212,7 +196,7 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
 
     private fun loadDataApi(loading: Boolean) {
         if (loading) {
-            multiStateViewReportVentas.viewState = MultiStateView.ViewState.LOADING
+            multiStateViewGanancias?.viewState = MultiStateView.ViewState.LOADING
         }
         val url =
             "https://api.apklis.cu/v1/payment/sales/?lte="+global_fecha_final+" 23:59&gte=" + global_fecha_inicio + "&user="+ userObject!!.username
@@ -227,33 +211,33 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
                 val list = ArrayList<MisGananciasResponse1>()
                 list.addAll(gananciasObject)
                 if (list.size == 0) {
-                    recycler_ReportGanancias.visibility = View.GONE
-                    sin_ventas_ganancias.visibility = View.VISIBLE
+                    recycler_ReportGanancias?.visibility = View.GONE
+                    sin_ventas_ganancias?.visibility = View.VISIBLE
                 } else {
-                    sin_ventas_ganancias.visibility = View.GONE
-                    recycler_ReportGanancias.visibility = View.VISIBLE
+                    sin_ventas_ganancias?.visibility = View.GONE
+                    recycler_ReportGanancias?.visibility = View.VISIBLE
                 }
-                adapterReportMisGanancias!!.setData(list)
+                adapterReportMisGanancias?.setData(list)
                 var importeTotal = 0.00
                 var cantidad_ventas= 0
                 for (element in gananciasObject) {
                     importeTotal += element.ammount
                     cantidad_ventas+= element.sales
                 }
-                ventas_cantidad_ventas.text = cantidad_ventas.toString()
+                ventas_cantidad_ventas?.text = cantidad_ventas.toString()
                 val text_total = roundOffDecimal(importeTotal).toString() + " CUP"
-                ventas_total_ventas.text = text_total
+                ventas_total_ventas?.text = text_total
                 val text_impuesto = roundOffDecimal(importeTotal * 0.30).toString() + " CUP"
-                ventas_impuesto.text = text_impuesto
+                ventas_impuesto?.text = text_impuesto
                 val text_onat = roundOffDecimal(importeTotal * 0.035).toString() + " CUP"
-                ventas_onat.text = text_onat
+                ventas_onat?.text = text_onat
                 val text_monto =
                     roundOffDecimal(importeTotal * 0.665).toString() + " CUP"
-                ventas_monto.text = text_monto
+                ventas_monto?.text = text_monto
                 Log.d(TAG, "loadDataApi: $importeTotal")
-                multiStateViewReportVentas.viewState = MultiStateView.ViewState.CONTENT
-                swipeRefreshReportVentas.isRefreshing = false
-                ventas_progress_bar.visibility = View.INVISIBLE
+                multiStateViewGanancias?.viewState = MultiStateView.ViewState.CONTENT
+                swipeRefreshReportVentas?.isRefreshing = false
+                ventas_progress_bar?.visibility = View.INVISIBLE
 
             }, Response.ErrorListener { error ->
                 when (error) {
@@ -275,11 +259,9 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
                         error.printStackTrace()
                     }
                 }
-                multiStateViewReportVentas.viewState = MultiStateView.ViewState.ERROR
-                if (swipeRefreshReportVentas != null) {
-                    swipeRefreshReportVentas.isRefreshing = false
-                }
-                ventas_progress_bar.visibility = View.INVISIBLE
+                multiStateViewGanancias?.viewState = MultiStateView.ViewState.ERROR
+                swipeRefreshReportVentas?.isRefreshing = false
+                ventas_progress_bar?.visibility = View.INVISIBLE
             }) {
 
             override fun getHeaders(): MutableMap<String, String> {

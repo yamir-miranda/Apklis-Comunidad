@@ -322,12 +322,12 @@ class CommentsAdapter(
                             builder.setMessage("¿Está seguro que desea eliminar el comentario?, Los cambios serán irreversibles")
                             builder.setPositiveButton(
                                 "Eliminar"
-                            ) { dialog, id ->
+                            ) { dialog, _ ->
                                 deleteComment(item.id.toString(), itemView.context, item, itemView.progressBarDeleteR)
                             }
                             builder.setNegativeButton(
                                 "Cancelar"
-                            ) { dialog, id ->
+                            ) { dialog, _ ->
                                 dialog.dismiss()
                             }
                             builder.show()
@@ -371,12 +371,12 @@ class CommentsAdapter(
                             builder.setMessage("¿Está seguro que desea eliminar el comentario?, Los cambios serán irreversibles")
                             builder.setPositiveButton(
                                 "Eliminar"
-                            ) { dialog, id ->
+                            ) { _, _ ->
                                 deleteComment(item.id.toString(), itemView.context, item, itemView.progressBarDeleteRE)
                             }
                             builder.setNegativeButton(
                                 "Cancelar"
-                            ) { dialog, id ->
+                            ) { dialog, _ ->
                                 dialog.dismiss()
                             }
                             builder.show()

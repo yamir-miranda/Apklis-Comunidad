@@ -80,11 +80,11 @@ class DownloadAppFragment : Fragment() {
     private suspend fun loadGrafic(dataList: ArrayList<BarData>, max_value: Int) {
 
         withContext(Dispatchers.IO) {
-            ChartProgressBar.setDataList(dataList)
-            ChartProgressBar.setMaxValue(max_value.toFloat())
+            ChartProgressBar?.setDataList(dataList)
+            ChartProgressBar?.setMaxValue(max_value.toFloat())
             withContext(Dispatchers.Main) {
-                ChartProgressBar.build()
-                multiStateViewDownload.viewState = MultiStateView.ViewState.CONTENT
+                ChartProgressBar?.build()
+                multiStateViewDownload?.viewState = MultiStateView.ViewState.CONTENT
             }
         }
     }
@@ -140,6 +140,7 @@ class DownloadAppFragment : Fragment() {
                         error.printStackTrace()
                     }
                 }
+                multiStateViewDownload?.viewState = MultiStateView.ViewState.ERROR
             }) {
 
             override fun getRetryPolicy(): RetryPolicy {

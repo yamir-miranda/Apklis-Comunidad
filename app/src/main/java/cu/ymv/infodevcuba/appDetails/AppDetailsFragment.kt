@@ -22,7 +22,6 @@ import cu.ymv.infodevcuba.utils.NetworkManager
 import cu.ymv.infodevcuba.webservices.VolleySingleton
 import kotlinx.android.synthetic.main.fragment_app_details.*
 import kotlinx.android.synthetic.main.fragment_ventas_app.*
-import java.lang.StringBuilder
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -126,57 +125,57 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
                 description = description.replace("<p>&nbsp;</p>", "")
                 description = description.replace("</p>", "\n")
                 description = description.replace("<p>", "")
-                app_details_description.text = description
-                app_details_reviews_count.text = appObject.reviews_count.toString()
-                app_details_start.rating = appObject.rating
+                app_details_description?.text = description
+                app_details_reviews_count?.text = appObject.reviews_count.toString()
+                app_details_start?.rating = appObject.rating
                 if (appObject.reviews_count !== 0) {
-                    app_details_rating.text =
+                    app_details_rating?.text =
                         roundOffDecimal(appObject.rating.toDouble()).toString()
                     val porc5 = ((appObject.reviews_star_5 * 100) / appObject.reviews_count)
                     val porc5Text = "$porc5 %"
-                    app_details_reviews_star_5_bar.progress = porc5
-                    app_details_reviews_star_5_text.text = porc5Text
+                    app_details_reviews_star_5_bar?.progress = porc5
+                    app_details_reviews_star_5_text?.text = porc5Text
 
                     val porc4 = appObject.reviews_star_4 * 100 / appObject.reviews_count
                     val porc4Text = "$porc4 %"
-                    app_details_reviews_star_4_bar.progress = porc4
-                    app_details_reviews_star_4_text.text = porc4Text
+                    app_details_reviews_star_4_bar?.progress = porc4
+                    app_details_reviews_star_4_text?.text = porc4Text
 
                     val porc3 = appObject.reviews_star_3 * 100 / appObject.reviews_count
                     val porc3Text = "$porc3 %"
-                    app_details_reviews_star_3_bar.progress = porc3
-                    app_details_reviews_star_3_text.text = porc3Text
+                    app_details_reviews_star_3_bar?.progress = porc3
+                    app_details_reviews_star_3_text?.text = porc3Text
 
                     val porc2 = appObject.reviews_star_2 * 100 / appObject.reviews_count
                     val porc2Text = "$porc2 %"
-                    app_details_reviews_star_2_bar.progress = porc2
-                    app_details_reviews_star_2_text.text = porc2Text
+                    app_details_reviews_star_2_bar?.progress = porc2
+                    app_details_reviews_star_2_text?.text = porc2Text
 
                     val porc1 = appObject.reviews_star_1 * 100 / appObject.reviews_count
                     val porc1Text = "$porc1 %"
-                    app_details_reviews_star_1_bar.progress = porc1
-                    app_details_reviews_star_1_text.text = porc1Text
+                    app_details_reviews_star_1_bar?.progress = porc1
+                    app_details_reviews_star_1_text?.text = porc1Text
 
                     val categories = StringBuilder()
                     for(categoria in appObject.categories){
                         categories.append(categoria.name + "/ ")
                     }
-                    app_details_categorias.text = categories.toString()
+                    app_details_categorias?.text = categories.toString()
 
                     if (appObject.last_release.abi.size !=0){
-                        card_arquitectura.visibility = View.VISIBLE
+                        card_arquitectura?.visibility = View.VISIBLE
                         val arquitecturas = StringBuilder()
                         for(arquitc in appObject.last_release.abi){
                             arquitecturas.append(arquitc.abi + "/ ")
                         }
-                        app_details_arquitecturas.text = arquitecturas.toString()
+                        app_details_arquitecturas?.text = arquitecturas.toString()
                     }
 
                 }
 
 
-                multiStateViewAppDetalles.viewState = MultiStateView.ViewState.CONTENT
-                swipeRefreshDetalles.isRefreshing = false
+                multiStateViewAppDetalles?.viewState = MultiStateView.ViewState.CONTENT
+                swipeRefreshDetalles?.isRefreshing = false
 
             }, Response.ErrorListener { error ->
                 when (error) {
@@ -196,11 +195,9 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
                         error.printStackTrace()
                     }
                 }
-                multiStateViewAppDetalles.viewState = MultiStateView.ViewState.ERROR
-                if (swipeRefreshDetalles != null) {
-                    swipeRefreshDetalles.isRefreshing = false
-                }
-                ventas_progress_bar.visibility = View.INVISIBLE
+                multiStateViewAppDetalles?.viewState = MultiStateView.ViewState.ERROR
+                swipeRefreshDetalles?.isRefreshing = false
+                ventas_progress_bar?.visibility = View.INVISIBLE
             }) {
 
             override fun getHeaders(): MutableMap<String, String> {

@@ -11,6 +11,7 @@ class MyPreferences(context: Context?) {
         private const val DARK_MODE_TIME = "DARK_MODE_TIME"
         private const val DARK_MODE_BRILLO = "DARK_MODE_BRILLO"
         private const val USER_OBEJECT = "USER_OBEJECT"
+        private const val PAID = "PAID"
     }
 
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -30,4 +31,6 @@ class MyPreferences(context: Context?) {
     var userObject = preferences.getString(USER_OBEJECT, "")
         set(value) = preferences.edit().putString(USER_OBEJECT, value).apply()
 
+    var Paid = preferences.getBoolean(PAID, false)
+        set(value) = preferences.edit().putBoolean(PAID, value).apply()
 }

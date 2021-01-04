@@ -28,7 +28,7 @@ class TabDetailsAppFragment : Fragment() {
     private var param3: String? = null
     private var price: Int? = 0
     private val titles =
-        arrayOf("Detalles", "Ventas", "Comentarios", "Descargas", "Versiones")
+        arrayOf("Detalles", "Ventas", "Comentarios", "Descargas")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,6 +2,8 @@
     <string name="app_name">Dev Cuba</string>
     <string name="imagen">imagen</string>
     <string name="credenciales_incorrectas">Credenciales Incorrectas</string>
+    <string name="seccion_expirado">Su sección ha experirado</string>
+    <string name="is_development">Su cuenta debe ser de desarrollador</string>
     <string name="campo_obligatorio">campo obligatorio</string>
     <string name="sin_acceso_apklis">Sin acceso a APKLIS</string>
     <string name="inicio_de_seccion">Inicio de Sección</string>
@@ -39,9 +41,18 @@
 
     <string name="date_util_suffix">hace</string>
     <string name="dev_cuba">Dev Cuba</string>
+    <string name="mis_ganancias">Mis Ganancias</string>
+    <string name="mi_cuenta">Mi Cuenta</string>
+    <string name="mis_aplicaciones">Mis Aplicaciones</string>
 
     <string-array name="graficos">
         <item>Descargas por versiones</item>
         <item>Descargas mensuales</item>
     </string-array>
+
+    <string name="app_pago_fail">No hemos podido comprobar que usted halla comprado la aplicación, para solucionar dicho problema complete los siguientes paso:</string>
+    <string name="muchas_gracias">Recuerde que si ya compro Dev Cuba, tiene derecho a descargar desde APKLIS las nuevas actualizaciones de la misma libre de costos.\n\nInformación de contacto:\n      móvil: +5352638973\n      email: yamir.miranda@nauta.cu</string>
+    <string name="aplicaci_n_de_pago">👉Aplicación de Pago👈</string>
+    <string name="muchas_gracias2">Muchas Gracias</string>
+
 </resources>

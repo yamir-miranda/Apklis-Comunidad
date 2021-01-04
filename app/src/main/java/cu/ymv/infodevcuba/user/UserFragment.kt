@@ -2,24 +2,38 @@ package cu.ymv.infodevcuba.user
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.android.volley.*
+import com.android.volley.toolbox.StringRequest
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
+import com.kennyc.view.MultiStateView
 import cu.ymv.infodevcuba.MainActivity
 import cu.ymv.infodevcuba.R
+import cu.ymv.infodevcuba.appDetails.TAG
 import cu.ymv.infodevcuba.login.LoginFragment
+import cu.ymv.infodevcuba.models.AppReportVentasResponse
+import cu.ymv.infodevcuba.models.ReportVentas
 import cu.ymv.infodevcuba.models.User
+import cu.ymv.infodevcuba.models.UserResponse
 import cu.ymv.infodevcuba.utils.MyPreferences
+import cu.ymv.infodevcuba.utils.NetworkManager
+import cu.ymv.infodevcuba.webservices.VolleySingleton
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_user.*
+import kotlinx.android.synthetic.main.fragment_ventas_app.*
 
 /**
  * A simple [Fragment] subclass.
  * create an instance of this fragment.
  */
-class UserFragment : Fragment() {
+class UserFragment : Fragment(), MultiStateView.StateListener {
     var userObject: User? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,19 +73,24 @@ class UserFragment : Fragment() {
             builder.show()
         }
 
+        multiStateViewUser.listener = this
+        multiStateViewUser.getView(MultiStateView.ViewState.ERROR)
+            ?.findViewById<Button>(R.id.btnRetryUser)
+            ?.setOnClickListener {
+                if (!NetworkManager().isNetworkAvailable(requireContext())) {
+                    showTost(resources.getString(R.string.sin_red), false)
+                } else {
+                    loadDataApi(true)
+                }
+            }
+    }
 
-        Glide.with(requireContext())
-            .load(userObject?.avatar)
-            .placeholder(R.drawable.avatar)
-            .error(R.drawable.avatar)
-            .into(userAvatar)
-        nombreApllidos.text = userObject!!.fullname
-        sha1.text = userObject!!.sha1
-        email.text = userObject!!.email
-        user.text = userObject!!.username
-        descripcion.text = userObject!!.description
-        apps.text = userObject!!.apps
-        ubicacion.text = userObject!!.province
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        swipeRefressUser?.setOnRefreshListener {
+            loadDataApi(false)
+        }
+        loadDataApi(true)
     }
 
     private fun addFragmentToFragment(fragment: Fragment) {
@@ -79,5 +98,88 @@ class UserFragment : Fragment() {
         transaction?.replace(R.id.container, fragment)
         transaction?.disallowAddToBackStack()
         transaction?.commit()
+    }
+
+    private fun loadDataApi(loading: Boolean) {
+        if (loading) {
+            multiStateViewUser?.viewState = MultiStateView.ViewState.LOADING
+        }
+        val url =
+            "https://api.apklis.cu/v1/user/" + userObject?.username + "/"
+        val stringRequest: StringRequest = object : StringRequest(Method.GET, url,
+            Response.Listener { response ->
+                val byte: ByteArray = response.toByteArray(charset("ISO-8859-1"))
+                val usuarioObject =
+                    Gson().fromJson(
+                        String(byte, charset("UTF-8")),
+                        UserResponse::class.java
+                    )
+
+                Glide.with(requireContext())
+                    .load(usuarioObject.avatar)
+                    .placeholder(R.drawable.avatar)
+                    .error(R.drawable.avatar)
+                    .into(userAvatar)
+                val text1 = usuarioObject.first_name+" "+ usuarioObject.last_name
+                 nombreApllidos?.text = text1
+                 sha1?.text = usuarioObject.sha1
+                 email?.text = usuarioObject.email
+                 user?.text = usuarioObject.username
+
+                multiStateViewUser?.viewState = MultiStateView.ViewState.CONTENT
+                swipeRefressUser?.isRefreshing = false
+
+            }, Response.ErrorListener { error ->
+                when (error) {
+                    is AuthFailureError -> {
+                        Log.d(TAG, "LoginUser: Invalid credentials given.")
+                        MyPreferences(context).userObject = ""
+                        (context as MainActivity).addFragmentToActivity(LoginFragment())
+                    }
+                    is TimeoutError -> {
+                        Log.d(TAG, "LoginUser: tiempo de espera excedido")
+                    }
+                    is NoConnectionError -> {
+                        Log.d(TAG, "LoginUser: conexion abortada")
+                    }
+                    else -> {
+                        Log.d(TAG, "LoginUser: error desconocido y no procesado")
+                        MyPreferences(context).userObject = ""
+                        (context as MainActivity).addFragmentToActivity(LoginFragment())
+                        error.printStackTrace()
+                    }
+                }
+                multiStateViewUser?.viewState = MultiStateView.ViewState.ERROR
+                swipeRefressUser?.isRefreshing = false
+            }) {
+
+            override fun getHeaders(): MutableMap<String, String> {
+                val headers = HashMap<String, String>()
+                headers["Authorization"] =
+                    userObject!!.tokens.token_type + " " + userObject!!.tokens.access_token
+                return headers
+            }
+
+            override fun getRetryPolicy(): RetryPolicy {
+                return DefaultRetryPolicy(
+                    1000 * 25, 0,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                )
+            }
+        }
+        VolleySingleton.getInstance(requireContext()).addToRequestQueue(stringRequest)
+    }
+
+
+    private fun showTost(text: String, corto: Boolean) {
+        if (corto) {
+            Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onStateChanged(viewState: MultiStateView.ViewState) {
+        Log.d(TAG, "onStateChanged: ")
     }
 }
