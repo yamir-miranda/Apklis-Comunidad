@@ -24,7 +24,7 @@ data class App(
     val name: String,
     val video_url: String,
     val video_img: String,
-    val price: Int,
+    val price: Double,
     val updated: String,
     val last_updated: String,
     val update_from: String,

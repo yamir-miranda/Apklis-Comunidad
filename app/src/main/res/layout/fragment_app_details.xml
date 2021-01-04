@@ -107,7 +107,7 @@
                                 android:id="@+id/app_details_categorias"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="todos los detalles de la aplicación"
+                                android:text="todos las categorias de la aplicación"
                                 android:textColor="?colorNegro"
                                 android:layout_marginBottom="@dimen/_5sdp"
                                 android:textSize="@dimen/_11ssp" />
@@ -150,7 +150,7 @@
                                 android:id="@+id/app_details_arquitecturas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="todos los detalles de la aplicación"
+                                android:text="todas las arquitecturas de la aplicación"
                                 android:textColor="?colorNegro"
                                 android:layout_marginBottom="@dimen/_5sdp"
                                 android:textSize="@dimen/_11ssp" />
