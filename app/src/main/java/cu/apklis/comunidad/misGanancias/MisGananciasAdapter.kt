@@ -11,6 +11,8 @@ import cu.apklis.comunidad.models.MisGananciasResponse
 import cu.apklis.comunidad.models.User
 import cu.apklis.comunidad.utils.DateUtils
 import kotlinx.android.synthetic.main.adapter_item_mis_ganancias.view.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 
 class MisGananciasAdapter(
@@ -34,8 +36,12 @@ class MisGananciasAdapter(
         override fun bind(item: MisGananciasResponse) {
             itemView.gananciasFecha.text =
                 DateUtils().formatStringDate("yyyy-MM-dd", "dd/MM/yyyy", item.day)
-            val text1 = item.ammount.toString() + " CUP"
+
+            val text1 = roundOffDecimal(item.ammount).toString() + " CUP"
             itemView.gananciasImporte.text = text1
+
+            val text12 = (roundOffDecimal((item.ammount * 66.5).div(100))).toString() + " CUP"
+            itemView.view_a_ganancias.text = text12
             val text2 = item.sales.toString() + " Ventas"
             itemView.gananciasVentas.text = text2
         }
@@ -82,5 +88,11 @@ class MisGananciasAdapter(
 
     private fun showToast(text: String, context: Context) {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+    }
+
+    fun roundOffDecimal(number: Double): Double? {
+        val df = DecimalFormat("#.##")
+        df.roundingMode = RoundingMode.FLOOR
+        return df.format(number).toDouble()
     }
 }

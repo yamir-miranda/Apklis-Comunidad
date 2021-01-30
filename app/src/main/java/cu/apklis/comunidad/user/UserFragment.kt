@@ -51,6 +51,11 @@ class UserFragment : Fragment(), MultiStateView.StateListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        theme.setOnClickListener {
+            (activity as MainActivity).changeTheme()
+        }
+
         exit.setOnClickListener {
             val builder = AlertDialog.Builder(view.context)
             builder.setTitle("Cerrar Sección")
@@ -116,11 +121,45 @@ class UserFragment : Fragment(), MultiStateView.StateListener {
                     .placeholder(R.drawable.avatar)
                     .error(R.drawable.avatar)
                     .into(userAvatar)
-                val text1 = usuarioObject.first_name+" "+ usuarioObject.last_name
-                 nombreApllidos?.text = text1
-                 sha1?.text = usuarioObject.sha1
-                 email?.text = usuarioObject.email
-                 user?.text = usuarioObject.username
+                val name = usuarioObject.first_name + " " + usuarioObject.last_name
+                view_user_name?.text = name
+                view_user_username?.text = usuarioObject.username
+                view_apps_deseos?.text = usuarioObject.wishlist.size.toString()
+                view_apps_fav?.text = usuarioObject.favorite_apps.size.toString()
+                view_apps_shop?.text = usuarioObject.payed.size.toString()
+
+                if (usuarioObject.seller.active){
+                    view_user_banner?.text = "Desarrollador | Vendedor"
+                }else{
+                    view_user_banner?.text = "Desarrollador"
+                }
+
+                view_user_namee?.text = usuarioObject.first_name
+                view_user_apellidos?.text = usuarioObject.last_name
+                view_user_movil?.text = usuarioObject.phone_number
+                view_user_email?.text = usuarioObject.email
+                view_user_sha1?.text = usuarioObject.sha1
+
+                if (usuarioObject.is_developer_active){
+                    view_user_dev_status?.text = "Activo"
+                }else{
+                    view_user_dev_status?.text = "Desactivado"
+                }
+
+                view_seller_name?.text = usuarioObject.seller.name
+                view_seller_movil?.text = usuarioObject.seller.phone_number
+                view_seller_email?.text = usuarioObject.seller.email
+                view_seller_ci?.text = usuarioObject.seller.cid
+                view_seller_tarjeta?.text = usuarioObject.seller.account
+                view_seller_municipio?.text = usuarioObject.seller.municipality
+                view_seller_provincia?.text = usuarioObject.seller.province
+                view_seller_direccion?.text = usuarioObject.seller.address
+
+                if (usuarioObject.seller.active){
+                    view_seller_status?.text = "Activo"
+                }else{
+                    view_seller_status?.text = "Desactivado"
+                }
 
                 multiStateViewUser?.viewState = MultiStateView.ViewState.CONTENT
                 swipeRefressUser?.isRefreshing = false

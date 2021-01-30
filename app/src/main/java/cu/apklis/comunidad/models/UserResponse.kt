@@ -3,7 +3,7 @@ package cu.apklis.comunidad.models
 data class UserResponse (
 
     val id : Int,
-    val avatar : String,
+    var avatar : String,
     val is_developer : Boolean,
     val is_developer_active : Boolean,
     val seller : Seller,

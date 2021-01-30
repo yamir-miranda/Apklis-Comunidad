@@ -32,184 +32,311 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        android:visibility="gone"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="@dimen/_5sdp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="@dimen/_11sdp"
                             android:layout_marginLeft="@dimen/_11sdp"
                             android:orientation="vertical">
-                            <TextView
+                            <FrameLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:text="Detalles"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_13sdp"
-                                android:textStyle="bold" />
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Generales"
+                                        android:textSize="@dimen/_14ssp" />
 
-                            <View
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                            <FrameLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginEnd="@dimen/_11sdp"
-                                android:layout_marginRight="@dimen/_10sdp"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:background="?colorNegro" />
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nombre App:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="todos los detalles de la aplicación"
-                                android:textColor="?colorNegro"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:textSize="@dimen/_11ssp" />
+                                <TextView
+                                    android:id="@+id/view_app_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1.0.0"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Package Name:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_package"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cantidad de Descargas:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_download_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cantidad de Ventas:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_sales_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precio:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="100cup"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Visibilidad:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_visibiliti"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10mb"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="@dimen/_5sdp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="@dimen/_11sdp"
                             android:layout_marginLeft="@dimen/_11sdp"
                             android:orientation="vertical">
-                            <TextView
+                            <FrameLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:text="Categorias"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_13sdp"
-                                android:textStyle="bold" />
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Ultima Versión"
+                                        android:textSize="@dimen/_14ssp" />
 
-                            <View
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                            <FrameLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginEnd="@dimen/_11sdp"
-                                android:layout_marginRight="@dimen/_10sdp"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:background="?colorNegro" />
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Versión Name:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
 
-                            <TextView
-                                android:id="@+id/app_details_categorias"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="todos las categorias de la aplicación"
-                                android:textColor="?colorNegro"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:textSize="@dimen/_11ssp" />
+                                <TextView
+                                    android:id="@+id/view_release_version_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1.0.0"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Versión Code:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_release_version_code"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="SDK Minimo:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_release_sdk_min"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="SDK Objeto:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_release_sdk_object"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tamaño:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_release_size"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10mb"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+
+
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_arquitectura"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:visibility="gone"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="@dimen/_11sdp"
-                            android:layout_marginLeft="@dimen/_11sdp"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:text="Arquitecturas"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_13sdp"
-                                android:textStyle="bold" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginEnd="@dimen/_11sdp"
-                                android:layout_marginRight="@dimen/_10sdp"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:background="?colorNegro" />
-
-                            <TextView
-                                android:id="@+id/app_details_arquitecturas"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="todas las arquitecturas de la aplicación"
-                                android:textColor="?colorNegro"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:textSize="@dimen/_11ssp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="@dimen/_11sdp"
-                            android:layout_marginLeft="@dimen/_11sdp"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:text="Descripción"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_13sdp"
-                                android:textStyle="bold" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginEnd="@dimen/_11sdp"
-                                android:layout_marginRight="@dimen/_10sdp"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:background="?colorNegro" />
-
-                            <TextView
-                                android:id="@+id/app_details_description"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="descripcion de la app"
-                                android:textColor="?colorNegro"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:textSize="@dimen/_11ssp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:orientation="horizontal">
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:layout_width="@dimen/_85sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
                             android:layout_height="match_parent"
-                            app:cardBackgroundColor="?colorTitleBar"
-                            app:cardCornerRadius="@dimen/_15sdp"
-                            app:cardElevation="0dp">
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="@dimen/_5sdp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -232,7 +359,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="0"
-                                    android:textColor="?colorNegro"
                                     android:textSize="@dimen/_25ssp" />
 
                                 <LinearLayout
@@ -246,28 +372,29 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:src="@drawable/ic_person"
-                                        app:tint="?colorNegro" />
+                                        app:tint="@color/colorPrimary" />
 
                                     <TextView
                                         android:id="@+id/app_details_reviews_count"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="0"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_15ssp" />
                                 </LinearLayout>
 
 
                             </LinearLayout>
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
                             android:layout_marginStart="@dimen/_5sdp"
-                            app:cardBackgroundColor="?colorTitleBar"
-                            app:cardCornerRadius="@dimen/_10sdp"
-                            app:cardElevation="0dp">
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="@dimen/_5sdp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -288,7 +415,7 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="5"
-                                        android:textColor="?colorNegro"
+
                                         android:textSize="@dimen/_7ssp" />
 
                                     <ProgressBar
@@ -308,7 +435,6 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="0%"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
 
@@ -328,7 +454,7 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="4"
-                                        android:textColor="?colorNegro"
+
                                         android:textSize="@dimen/_7ssp" />
 
                                     <ProgressBar
@@ -348,7 +474,6 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="0%"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
 
@@ -368,7 +493,7 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="3"
-                                        android:textColor="?colorNegro"
+
                                         android:textSize="@dimen/_7ssp" />
 
                                     <ProgressBar
@@ -388,7 +513,6 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="0%"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
 
@@ -408,7 +532,6 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="2"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
                                     <ProgressBar
@@ -428,7 +551,6 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="0%"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
 
@@ -449,7 +571,6 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="1"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
                                     <ProgressBar
@@ -469,57 +590,153 @@
                                         android:layout_weight="3"
                                         android:gravity="center"
                                         android:text="0%"
-                                        android:textColor="?colorNegro"
                                         android:textSize="@dimen/_7ssp" />
 
                                 </LinearLayout>
 
                             </LinearLayout>
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:visibility="gone"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="@dimen/_5sdp">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="@dimen/_11sdp"
                             android:layout_marginLeft="@dimen/_11sdp"
                             android:orientation="vertical">
-                            <TextView
+                            <FrameLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:text="Versión Actual"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_13sdp"
-                                android:textStyle="bold" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginEnd="@dimen/_11sdp"
-                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
                                 android:layout_marginBottom="@dimen/_5sdp"
-                                android:background="?colorNegro" />
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Categorias"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                </LinearLayout>
+
+                            </FrameLayout>
 
                             <TextView
+                                android:id="@+id/app_details_categorias"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="todos los datos de la version actual"
-                                android:textColor="?colorNegro"
+                                android:text="todos las categorias de la aplicación"
                                 android:layout_marginBottom="@dimen/_5sdp"
                                 android:textSize="@dimen/_11ssp" />
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_arquitectura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="@dimen/_5sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Arquitecturas"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                            <TextView
+                                android:id="@+id/app_details_arquitecturas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="todas las arquitecturas de la aplicación"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="@dimen/_5sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_11sdp"
+                            android:layout_marginLeft="@dimen/_11sdp"
+                            android:orientation="vertical">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Descripción"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/app_details_description"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="descripcion de la app"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:textSize="@dimen/_11ssp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

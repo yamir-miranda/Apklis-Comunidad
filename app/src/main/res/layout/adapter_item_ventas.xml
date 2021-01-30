@@ -19,7 +19,6 @@
         android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/_10sdp"
-        android:textColor="?colorNegro"
         android:textSize="@dimen/_11ssp"
         android:text="+5352829524"/>
     <TextView
@@ -28,7 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/_10sdp"
-        android:textColor="?colorNegro"
         android:text="hace unos minutos"/>
 
 </LinearLayout>

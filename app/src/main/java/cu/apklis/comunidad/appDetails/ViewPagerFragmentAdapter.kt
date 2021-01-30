@@ -20,13 +20,13 @@ class ViewPagerFragmentAdapter(
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
-                AppDetailsFragment.newInstance(appPackage!!, "")
-            }
-            1 -> {
                 VentasAppFragment.newInstance(appId!!, price!!)
             }
-            2 -> {
+            1 -> {
                 CommentsFragment.newInstance(appId!!)
+            }
+            2 -> {
+                AppDetailsFragment.newInstance(appPackage!!, "")
             }
             3-> {
                 DownloadAppFragment.newInstance(appId!!, "")

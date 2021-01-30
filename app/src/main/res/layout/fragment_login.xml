@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,200 +14,186 @@
 
         <FrameLayout
             android:id="@+id/superior"
-            style="?barraTitulo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/_10sdp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_35sdp"
-                android:text="@string/dev_cuba"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginBottom="@dimen/_7sdp"
-                android:gravity="center"
-                android:textColor="?colorNegro"
-                android:textSize="@dimen/_25ssp"
-                android:layout_gravity="start"
-                android:fontFamily="@font/helvetica_stand"/>
+            <com.scwang.wave.MultiWaveHeader
+                android:id="@+id/waveHeader"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_135sdp"
+                android:scaleY="1"
+                app:mwhCloseColor="@color/colorPrimaryDark"
+                app:mwhColorAlpha="0.45"
+                app:mwhGradientAngle="45"
+                app:mwhProgress="1"
+                app:mwhStartColor="@color/colorPrimaryDark"
+                app:mwhVelocity="1"
+                app:mwhWaveHeight="50dp"
+                app:mwhWaves="MultiWave" />
+
 
             <ImageView
-                android:visibility="gone"
-                style="?logoImagen"
-                android:layout_width="@dimen/_155sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_gravity="center|start"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginBottom="@dimen/_7sdp"
-                android:contentDescription="@string/imagen" />
+                android:id="@+id/theme"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:contentDescription="@string/imagen"
+                android:src="@drawable/ic_theme"
+                android:visibility="visible" />
 
         </FrameLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-130dp"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center_horizontal"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="data.json"
+                app:lottie_loop="true" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="10dp"
-                card_view:cardBackgroundColor="?colorTitleBar"
-                card_view:cardCornerRadius="@dimen/_10sdp">
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/mensajeAlert"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_25sdp"
-                    android:orientation="vertical">
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:background="@drawable/boton_redondo_rojo"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:contentDescription="@string/imagen"
+                        android:src="@drawable/ic_alerta" />
 
                     <TextView
+                        android:id="@+id/mensaje"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_10sdp"
                         android:fontFamily="@font/helvetica_stand"
-                        android:text="@string/inicio_de_seccion"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_25ssp" />
-
-                    <LinearLayout
-                        android:id="@+id/mensajeAlert"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_22sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/boton_redondo_rojo"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/_5sdp"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="@dimen/_10sdp"
-                            android:layout_height="@dimen/_10sdp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:contentDescription="@string/imagen"
-                            android:src="@drawable/ic_alerta" />
-
-                        <TextView
-                            android:id="@+id/mensaje"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_10sdp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:fontFamily="@font/helvetica_stand"
-                            android:gravity="center"
-                            android:text="@string/credenciales_incorrectas"
-                            android:textColor="@color/colorRojo"
-                            android:textSize="@dimen/_10ssp" />
-
-                    </LinearLayout>
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/usuario"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:hint="@string/usuario"
-                        android:textColorHint="?colorNegro"
-                        app:counterTextAppearance="@style/CounterTextAparenceLight"
-                        app:counterTextColor="?attr/colorNegro"
-                        app:errorTextAppearance="@style/ErrorTextAparenceLight"
-                        app:errorTextColor="@color/colorRojo"
-                        app:helperTextTextAppearance="@style/HelperTextAparenceLight"
-                        app:helperTextTextColor="?colorNegro"
-                        app:hintTextAppearance="@style/HintTextAparenceLight"
-                        app:hintTextColor="?colorNegro"
-                        app:passwordToggleTint="?attr/colorNegro">
-
-                        <EditText
-                            android:id="@+id/usuario_input"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeActionLabel=""
-                            android:imeOptions="actionUnspecified"
-                            android:inputType="text"
-                            android:maxLines="1"
-                            android:textColor="?colorNegro"
-                            android:textColorHint="?colorNegro"
-                            android:textSize="@dimen/_12ssp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:hint="@string/contrasenna"
-                        android:textColorHint="?colorNegro"
-                        app:counterTextAppearance="@style/CounterTextAparenceLight"
-                        app:counterTextColor="?attr/colorNegro"
-                        app:errorTextAppearance="@style/ErrorTextAparenceLight"
-                        app:errorTextColor="@color/colorRojo"
-                        app:helperTextTextAppearance="@style/HelperTextAparenceLight"
-                        app:helperTextTextColor="?colorNegro"
-                        app:hintTextAppearance="@style/HintTextAparenceLight"
-                        app:hintTextColor="?colorNegro"
-                        app:passwordToggleEnabled="true"
-                        app:passwordToggleTint="?attr/colorNegro">
-
-                        <EditText
-                            android:id="@+id/password_input"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeActionLabel=""
-                            android:imeOptions="actionUnspecified"
-                            android:inputType="textPassword"
-                            android:maxLines="1"
-                            android:textColor="?colorNegro"
-                            android:textColorHint="?colorNegro"
-                            android:textSize="@dimen/_12ssp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_marginTop="@dimen/_30sdp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/btnLogin"
-                            style="?botonRedondo"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_25sdp"
-                            android:gravity="center"
-                            android:text="@string/entrar"
-                            android:textColor="?colorNegro"
-                            android:textSize="@dimen/_15ssp" />
-
-                        <pl.droidsonroids.gif.GifImageView
-                            android:id="@+id/btnLoginLoading"
-                            style="?botonRedondo"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_25sdp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/aminate_dots"
-                            android:tint="?colorNegro"
-                            android:visibility="gone" />
-
-                    </RelativeLayout>
+                        android:gravity="center"
+                        android:text="@string/credenciales_incorrectas"
+                        android:textColor="@color/colorRojo"
+                        android:textSize="@dimen/_10ssp" />
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/usuario"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeErrorColor="@color/colorRojo"
+                    app:errorIconTint="@color/colorRojo"
+                    app:errorTextColor="@color/colorRojo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/usuario_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Usuario de APKLIS"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeErrorColor="@color/colorRojo"
+                    app:errorIconTint="@color/colorRojo"
+                    app:errorTextColor="@color/colorRojo"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Contraseña"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.example.myloadingbutton.MyLoadingButton
+                    android:id="@+id/my_loading_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:mlb_animationDuration="300"
+                    app:mlb_backgroundColor="@color/colorPrimary"
+                    app:mlb_label="Iniciar Sección"
+                    app:mlb_labelColor="@color/colorBlanco"
+                    app:mlb_labelSize="@dimen/_12ssp"
+                    app:mlb_loaderColor="@color/colorBlanco"
+                    app:mlb_setDoneIcon="@drawable/ic_progress_done"
+                    app:mlb_setErrorIcon="@drawable/ic_progress_done"
+                    app:mlb_setNormalAfterError="false" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="APKLIS Admin"
+                android:gravity="center"
+                android:textSize="@dimen/_11ssp"
+                android:layout_marginBottom="@dimen/_10sdp"
+               android:layout_gravity="bottom|center"/>
+
+        </FrameLayout>
+
 
     </LinearLayout>
 

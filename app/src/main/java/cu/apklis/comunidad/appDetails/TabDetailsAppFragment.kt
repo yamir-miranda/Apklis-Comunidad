@@ -16,6 +16,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private const val ARG_PARAM3 = "param3"
 private const val ARG_PARAM4 = "param4"
+private const val ARG_PARAM5 = "param5"
 
 /**
  * A simple [Fragment] subclass.
@@ -26,9 +27,10 @@ class TabDetailsAppFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var param3: String? = null
+    private var name: String? = null
     private var price: Double? = 0.00
     private val titles =
-        arrayOf("Detalles", "Ventas", "Comentarios", "Descargas")
+        arrayOf("Ventas", "Comentarios","Detalles", "Descargas")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class TabDetailsAppFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
             param3 = it.getString(ARG_PARAM3)
             price = it.getDouble(ARG_PARAM4)
+            name = it.getString(ARG_PARAM5)
         }
     }
 
@@ -50,9 +53,10 @@ class TabDetailsAppFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Glide.with(requireContext())
+        view_app_name?.text = name
+        /*Glide.with(requireContext())
             .load(param3)
-            .into(iconAppDetail)
+            .into(iconAppDetail)*/
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -78,16 +82,18 @@ class TabDetailsAppFragment : Fragment() {
          * @param param2 Parameter 2.
          * @param param3 Parameter 3.
          * @param param4 Parameter 4.
+         * @param param4 Parameter 5.
          * @return A new instance of fragment TabDetailsAppFragment.
          */
         @JvmStatic
-        fun newInstance(param1: String, param2: String, param3: String, param4: Double) =
+        fun newInstance(param1: String, param2: String, param3: String, param4: Double, param5: String) =
             TabDetailsAppFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                     putString(ARG_PARAM3, param3)
                     putDouble(ARG_PARAM4, param4)
+                    putString(ARG_PARAM5, param5)
                 }
             }
     }

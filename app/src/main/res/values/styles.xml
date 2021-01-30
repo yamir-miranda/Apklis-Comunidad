@@ -2,7 +2,7 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar"/>
 
-    <style name="LightTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+    <style name="LightTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -25,6 +25,24 @@
         <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
         <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
 
+        <item name="spark_SparkViewStyle">@style/MySparkViewStyle</item>
+
+    </style>
+
+    <style name="MySparkViewStyle" parent="@style/SplashThemeLight">
+        <item name="spark_lineColor">@color/colorPrimary</item>
+        <item name="spark_lineWidth">2dp</item>
+        <item name="spark_cornerRadius">16dp</item>
+        <item name="spark_fill">false</item>
+
+        <item name="spark_baseLineColor">@color/colorPrimary</item>
+        <item name="spark_baseLineWidth">2dp</item>
+
+        <item name="spark_scrubLineColor">@color/colorPrimary</item>
+        <item name="spark_scrubLineWidth">2dp</item>
+        <item name="spark_scrubEnabled">true</item>
+
+        <item name="spark_animateChanges">true</item>
     </style>
 
     <style name="DarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
@@ -150,6 +168,23 @@
 
     <style name="BackgroundCommentReplyEndDark" parent="@android:style/Widget">
         <item name="android:background">@drawable/backgroud_comment_reply_end_dark</item>
+    </style>
+
+    <style name="reportsCardStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">140dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">@dimen/_10sdp</item>
+    </style>
+
+    <style name="reportContentText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/colorBlanco</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 

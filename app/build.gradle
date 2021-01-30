@@ -7,13 +7,21 @@ android {
 
     defaultConfig {
         applicationId "cu.ymv.infodevcuba"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
-        multiDexEnabled true
         versionCode 2
         versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     buildTypes {
@@ -55,6 +63,20 @@ dependencies {
     implementation 'com.github.hadiidbouk:ChartProgressBar-Android:2.0.6'
 
     implementation 'com.github.baoyachi:StepView:1.9'
+
+    // Charts
+    implementation 'com.diogobernardino:williamchart:3.9.1'
+
+// Tooltips
+    implementation 'com.diogobernardino.williamchart:tooltip-slider:3.9.1'
+    implementation 'com.diogobernardino.williamchart:tooltip-points:3.9.1'
+
+    implementation "com.airbnb.android:lottie:3.6.0"
+    implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-andx'
+    implementation 'com.github.yatindeokar:MyLoadingButton:v1.0.1'
+    implementation 'com.robinhood.spark:spark:1.2.0'
+
+    implementation 'im.dacer:AndroidCharts:1.0.4'
 
 
 

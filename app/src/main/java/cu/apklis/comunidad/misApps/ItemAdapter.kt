@@ -1,4 +1,4 @@
-package cu.apklis.comunidad.home
+package cu.apklis.comunidad.misApps
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -44,10 +44,15 @@ class ItemAdapter(
                 .error(R.drawable.avatar)
                 .into(itemView.appIcon)
             itemView.nombre.text = app.name
-            itemView.cantDownload.text = app.download_count.toString()
-            val reviews: String = "(" + app.reviews_count + ")"
-            itemView.reviews_count.text = reviews
+            itemView.reviews_count.text = app.reviews_count.toString()
             itemView.ratingBar.rating = app.rating
+            if (app.price == 0.00){
+                itemView.view_a_download.visibility =View.VISIBLE
+                itemView.cantDownload.text = app.download_count.toString()
+            }else{
+                itemView.view_a_ventas.visibility =View.VISIBLE
+                itemView.cantDownload.text = app.sale_count.toString()
+            }
         }
     }
 

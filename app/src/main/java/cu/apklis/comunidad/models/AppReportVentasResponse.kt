@@ -10,7 +10,7 @@ data class AppReportVentasResponse(
 data class Results (
 
     val id : Int,
-    val seller : Seller,
+    val seller : String,
     val products : List<Int>,
     val buyer : String,
     val buyer_phone : String,

@@ -22,39 +22,60 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.hadiidbouk.charts.ChartProgressBar
-                android:id="@+id/ChartProgressBar"
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hdBarCanBeClick="true"
-                app:hdBarHeight="@dimen/_200sdp"
-                app:hdBarRadius="10dp"
-                app:hdBarTitleColor="?colorNegro"
-                app:hdBarTitleMarginTop="9dp"
-                app:hdBarTitleSelectedColor="?colorNegro"
-                app:hdBarTitleTxtSize="12sp"
-                app:hdBarWidth="@dimen/_10sdp"
-                app:hdEmptyColor="?bgColor"
-                app:hdMaxValue="10"
-                app:hdPinBackgroundColor="@color/pin_background"
-                app:hdPinDrawable="@drawable/backgroud_load_round"
-                app:hdPinMarginBottom="40dp"
-                app:hdPinMarginEnd="5dp"
-                app:hdPinMarginTop="10dp"
-                app:hdPinPaddingBottom="5dp"
-                app:hdPinTextColor="@color/pin_text"
-                app:hdPinTxtSize="17sp"
-                app:hdProgressClickColor="@color/colorPrimary2"
-                app:hdProgressColor="@color/colorPrimary"
-                app:hdProgressDisableColor="@color/progress_disable" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:text="descargas por versiones"
-                android:gravity="center"
-                android:textColor="?colorNegro"
-                android:textSize="@dimen/_8ssp" />
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:visibility="visible"
+                app:cardElevation="@dimen/_5sdp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:text="Descargas"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/horizontalScrollView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <im.dacer.androidcharts.LineView
+                            android:id="@+id/line_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_250sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            />
+                    </HorizontalScrollView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:gravity="end"
+                            android:alpha="0.8"
+                            android:text="por versiones de la app" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
     </com.kennyc.view.MultiStateView>

@@ -14,9 +14,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/_15sdp"
-            android:text="Sin Comentarios"
+            android:text="Sin Apps"
             android:textAlignment="center"
-            android:textColor="?attr/colorNegro"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_20ssp" />
 
 

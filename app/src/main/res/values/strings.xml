@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Apklis Comunidad</string>
+    <string name="app_name">Apklis Admin</string>
     <string name="imagen">imagen</string>
     <string name="credenciales_incorrectas">Credenciales Incorrectas</string>
     <string name="seccion_expirado">Su sección ha experirado</string>
@@ -41,7 +41,7 @@
 
     <string name="date_util_suffix">hace</string>
     <string name="dev_cuba">Dev Cuba</string>
-    <string name="mis_ganancias">Mis Ganancias</string>
+    <string name="mis_ganancias">Ganancias</string>
     <string name="mi_cuenta">Mi Cuenta</string>
     <string name="mis_aplicaciones">Mis Aplicaciones</string>
 

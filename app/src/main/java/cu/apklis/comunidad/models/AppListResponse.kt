@@ -36,6 +36,7 @@ data class App(
     val announced: Boolean,
     val deleted: Boolean,
     val download_count: Int,
+    val sale_count: Int,
     val relevance: Int,
     val relevance_download: Int,
     val relevance_visit: Int,

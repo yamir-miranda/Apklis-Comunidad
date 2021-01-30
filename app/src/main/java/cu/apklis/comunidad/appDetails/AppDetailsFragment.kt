@@ -171,6 +171,24 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
                         }
                         app_details_arquitecturas?.text = arquitecturas.toString()
                     }
+                    view_release_version_name?.text = appObject.last_release.version_name
+                    view_release_version_code?.text = appObject.last_release.version_code.toString()
+                    view_release_size?.text = appObject.last_release.human_readable_size
+                    view_release_sdk_min?.text = appObject.last_release.version_sdk_name
+                    view_release_sdk_object?.text = appObject.last_release.version_target_sdk_name
+
+                    if (appObject.public){
+                        view_app_visibiliti?.text = "Publica"
+                    }else{
+                        view_app_visibiliti?.text = "Privada"
+                    }
+
+                    view_app_download_count?.text = appObject.download_count.toString()
+                    view_app_sales_count?.text = appObject.sale_count.toString()
+                    val text = appObject.price.toString()+" CUP"
+                    view_app_price?.text = text
+                    view_app_name?.text = appObject.name
+                    view_app_package?.text = appObject.package_name
 
                 }
 
@@ -198,7 +216,7 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
                 }
                 multiStateViewAppDetalles?.viewState = MultiStateView.ViewState.ERROR
                 swipeRefreshDetalles?.isRefreshing = false
-                ventas_progress_bar?.visibility = View.INVISIBLE
+                view_load_data?.visibility = View.INVISIBLE
             }) {
 
             override fun getHeaders(): MutableMap<String, String> {

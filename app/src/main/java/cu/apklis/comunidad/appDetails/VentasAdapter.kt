@@ -12,6 +12,8 @@ import cu.apklis.comunidad.models.ReportVentas
 import cu.apklis.comunidad.models.User
 import cu.apklis.comunidad.utils.DateUtils
 import kotlinx.android.synthetic.main.adapter_item_ventas.view.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 
 class VentasAdapter(
@@ -32,7 +34,7 @@ class VentasAdapter(
     inner class ReportVentasViewHolder(itemView: View) : BaseViewHolder<ReportVentas>(itemView) {
 
         override fun bind(item: ReportVentas) {
-            itemView.ventasNumber.text = "+53 5 *******"
+            itemView.ventasNumber.text = item.phone_number
             itemView.ventasDate.text = DateUtils().getTimeAgo(
                 DateUtils().loadDateofString(
                     "yyyy-MM-dd'T'HH:mm:ss",
@@ -101,4 +103,5 @@ class VentasAdapter(
     private fun showToast(text: String, context: Context) {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
     }
+
 }

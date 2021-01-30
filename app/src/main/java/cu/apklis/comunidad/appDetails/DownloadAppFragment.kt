@@ -1,5 +1,6 @@
 package cu.apklis.comunidad.appDetails
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import cu.apklis.comunidad.login.LoginFragment
 import cu.apklis.comunidad.models.DownloadVersionResponse
 import cu.apklis.comunidad.utils.MyPreferences
 import cu.apklis.comunidad.webservices.VolleySingleton
+import im.dacer.androidcharts.LineView
 import kotlinx.android.synthetic.main.fragment_download_app.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -77,18 +79,6 @@ class DownloadAppFragment : Fragment() {
         loadDataApi()
     }
 
-    private suspend fun loadGrafic(dataList: ArrayList<BarData>, max_value: Int) {
-
-        withContext(Dispatchers.IO) {
-            ChartProgressBar?.setDataList(dataList)
-            ChartProgressBar?.setMaxValue(max_value.toFloat())
-            withContext(Dispatchers.Main) {
-                ChartProgressBar?.build()
-                multiStateViewDownload?.viewState = MultiStateView.ViewState.CONTENT
-            }
-        }
-    }
-
     private fun loadDataApi() {
         val url = "https://api.apklis.cu/v2/download/by_releases/"
         val stringRequest: StringRequest = object : StringRequest(Method.POST, url,
@@ -101,25 +91,28 @@ class DownloadAppFragment : Fragment() {
                         DownloadVersionResponse::class.java
                     )
 
-                val dataList: ArrayList<BarData> = ArrayList()
-                var max_value = 0
+                val LineTitle = ArrayList<String>()
+                val ddataList: ArrayList<Int> = ArrayList()
                 for (element in downloadObject.downloads) {
-                    if (max_value < element.values.elementAt(0)) {
-                        max_value = element.values.elementAt(0)
-                    }
-                    dataList.add(
-                        BarData(
-                            element.keys.elementAt(0),
-                            element.values.elementAt(0).toFloat(),
-                            element.values.elementAt(0).toString()
-                        )
+                    LineTitle.add(element.keys.elementAt(0))
+                    ddataList.add(element.values.elementAt(0))
+                }
+
+                line_view.setBottomTextList(LineTitle)
+                line_view.setColorArray(
+                    intArrayOf(
+                        Color.parseColor("#056CD0"), Color.parseColor("#056CD0"),
+                        Color.parseColor("#056CD0"), Color.parseColor("#056CD0")
                     )
+                )
+                line_view.setDrawDotLine(true)
+                line_view.setShowPopup(LineView.SHOW_POPUPS_NONE)
+                val dataLists: ArrayList<ArrayList<Int>> = ArrayList()
+                dataLists.add(ddataList)
+                line_view.setDataList(dataLists)
 
-                }
+                multiStateViewDownload?.viewState = MultiStateView.ViewState.CONTENT
 
-                lifecycleScope.launch {
-                    loadGrafic(dataList, max_value + 20)
-                }
             }, Response.ErrorListener { error ->
                 when (error) {
                     is AuthFailureError -> {

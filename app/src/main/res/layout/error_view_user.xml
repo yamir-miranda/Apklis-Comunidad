@@ -15,20 +15,23 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_15sdp"
             android:text="Error de Conexión"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:textAlignment="center"
-            android:textColor="?attr/colorNegro"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/_20ssp" />
 
         <Button
             android:id="@+id/btnRetryUser"
             style="?botonRedondo"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_height="wrap_content"
             android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="@dimen/_10sdp"
             android:text="Reintentar"
-            android:textColor="?attr/colorNegro"
+            android:textColor="@color/colorBlanco"
             android:textSize="@dimen/_15ssp" />
+
 
     </LinearLayout>
 

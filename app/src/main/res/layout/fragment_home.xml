@@ -1,210 +1,604 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/superior"
-        style="?barraTitulo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="@dimen/_10sdp">
+        android:layout_height="wrap_content">
+
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/waveHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:scaleY="1"
+            app:mwhCloseColor="@color/colorPrimaryDark"
+            app:mwhColorAlpha="0.45"
+            app:mwhGradientAngle="45"
+            app:mwhProgress="1"
+            app:mwhStartColor="@color/colorPrimaryDark"
+            app:mwhVelocity="1"
+            app:mwhWaveHeight="50dp"
+            app:mwhWaves="MultiWave" />
 
         <TextView
-            android:id="@+id/logoHome"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:fontFamily="@font/helvetica_stand"
-            android:gravity="center"
-            android:text="@string/dev_cuba"
-            android:textColor="?colorNegro"
-            android:textSize="@dimen/_25ssp" />
+            android:layout_marginTop="@dimen/_22sdp"
+            android:text="Dashboard"
+            android:textColor="@color/colorBlanco"
+            android:textSize="@dimen/_24ssp" />
 
-        <ImageView
-            style="?logoImagen"
-            android:layout_width="@dimen/_155sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginBottom="@dimen/_7sdp"
-            android:contentDescription="@string/imagen"
-            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userImg"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+            <ImageView
+                android:id="@+id/theme"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:contentDescription="@string/imagen"
-                android:src="@drawable/avatar"
-                android:visibility="gone" />
+                android:src="@drawable/ic_theme"
+                android:visibility="visible" />
 
             <ImageView
-                android:id="@+id/ajustes"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
+                android:id="@+id/exit"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:contentDescription="@string/imagen"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_ajustes"
-                app:tint="?colorNegro" />
-
+                android:src="@drawable/ic_exit"
+                android:visibility="visible" />
         </LinearLayout>
+
 
     </FrameLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/view_mis_ganancias"
-                        android:layout_width="0dp"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="5dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardCornerRadius="16dip"
+                        >
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:text="Resumen Mes Acual"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/view_mes_status"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="+0.00 CUP"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:textSize="@dimen/_11ssp"
+                                        android:textColor="#00FF04"
+                                        />
+
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/view_mes_load_data"
+                                    android:layout_width="@dimen/_16sdp"
+                                    android:layout_height="@dimen/_16sdp"
+                                    android:layout_gravity="center|end"
+                                    android:visibility="visible" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_gravity="center">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+                                    <ImageView
+                                        android:id="@id/imageView3"
+                                        android:layout_width="@dimen/_21sdp"
+                                        android:layout_height="@dimen/_21sdp"
+                                        android:layout_marginEnd="@dimen/_2sdp"
+                                        android:src="@drawable/ic_money_sim"
+                                        app:tint="@color/colorPrimary" />
+                                    <TextView
+                                        android:id="@+id/view_mes_ganancias"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_2sdp"
+                                        android:text="0.0 CUP"
+                                        android:gravity="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                                        android:textSize="@dimen/_18sdp"
+                                        />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/view_mes_ventas"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="8.0dip"
+                                    android:layout_gravity="end"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:text="0 Ventas" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_gravity="bottom">
+                                <TextView
+                                    android:id="@+id/view_mes_total"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_8sdp"
+                                    android:alpha="0.8"
+                                    android:text="Total: 0.0 CUP" />
+
+                                <TextView
+                                    android:id="@+id/view_mes_impuestos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="16.0dip"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_8sdp"
+                                    android:alpha="0.8"
+                                    android:text="Impuestos: 0.0 CUP" />
+                            </FrameLayout>
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="5dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardCornerRadius="16dip"
+                        >
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:text="Resumen Ventas Hoy"
+                                        android:textSize="@dimen/_14ssp" />
+
+                                    <TextView
+                                        android:id="@+id/view_hoy_status"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="+0.00 CUP"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:textSize="@dimen/_11ssp"
+                                        android:textColor="#00FF04"
+                                        />
+
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/view_hoy_load_data"
+                                    android:layout_width="@dimen/_16sdp"
+                                    android:layout_height="@dimen/_16sdp"
+                                    android:layout_gravity="center|end"
+                                    android:visibility="visible" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_gravity="center">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+                                    <ImageView
+                                        android:id="@id/imageView3"
+                                        android:layout_width="@dimen/_21sdp"
+                                        android:layout_height="@dimen/_21sdp"
+                                        android:layout_marginEnd="@dimen/_2sdp"
+                                        android:src="@drawable/ic_money_sim"
+                                        app:tint="@color/colorPrimary" />
+                                    <TextView
+                                        android:id="@+id/view_hoy_ganancias"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_2sdp"
+                                        android:text="0.0 CUP"
+                                        android:gravity="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                                        android:textSize="@dimen/_18sdp"
+                                        />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/view_hoy_ventas"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="8.0dip"
+                                    android:layout_gravity="end"
+                                    android:textSize="@dimen/_10ssp"
+                                    android:text="0 Ventas" />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_gravity="bottom">
+                                <TextView
+                                    android:id="@+id/view_hoy_total"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_8sdp"
+                                    android:alpha="0.8"
+                                    android:text="Total: 0.0 CUP" />
+
+                                <TextView
+                                    android:id="@+id/view_hoy_impuestos"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="16.0dip"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_8sdp"
+                                    android:alpha="0.8"
+                                    android:text="Impuestos: 0.0 CUP" />
+                            </FrameLayout>
+                        </FrameLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:layout_weight="1"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:visibility="visible"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardCornerRadius="16dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="@dimen/_11sdp"
-                            android:layout_marginRight="@dimen/_11sdp"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sdp">
 
-                            <ImageView
-                                android:layout_width="@dimen/_45sdp"
-                                android:layout_height="@dimen/_45sdp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:contentDescription="@string/imagen"
-                                android:src="@drawable/ic_money"
-                                app:tint="?colorNegro" />
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
 
-                            <TextView
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:text="Comportamiento"
+                                        android:textSize="@dimen/_14ssp" />
+
+
+                                <ProgressBar
+                                    android:id="@+id/view_comportamiento_load_data"
+                                    android:layout_width="@dimen/_16sdp"
+                                    android:layout_height="@dimen/_16sdp"
+                                    android:layout_gravity="center|end"
+                                    android:visibility="visible" />
+                            </FrameLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp">
+                                <com.robinhood.spark.SparkView
+                                    android:id="@+id/sparkview"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_125sdp" />
+                                <FrameLayout
+                                    android:id="@+id/sin_datos"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_125sdp">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_5sdp"
+                                        android:layout_gravity="center"
+                                        android:text="Sin Datos"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                                        android:textSize="@dimen/_15sdp"
+                                        />
+                                </FrameLayout>
+                            </RelativeLayout>
+
+                            <com.db.williamchart.view.LineChartView
+                                android:id="@+id/lineChart"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_125sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                app:chart_axis="x"
+                                app:chart_gridEffect="dotted"
+                                app:chart_labelsColor="@color/colorPrimary"
+                                app:chart_labelsFont="@font/helvetica_stand"
+                                app:chart_labelsSize="10sp"
+                                app:chart_lineColor="@color/colorPrimary"
+                                app:chart_lineThickness="@dimen/_1sdp"
+                                app:chart_smoothLine="true" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/_5sdp"
+                                    android:gravity="end"
+                                    android:alpha="0.8"
+                                    android:text="mes actual, ganancias" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/view_mis_ganancias"
+                            style="@style/reportsCardStyle"
+                            android:clickable="true"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="@dimen/_5sdp">
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:text="@string/mis_ganancias"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_11ssp" />
-                        </LinearLayout>
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
-                    </androidx.cardview.widget.CardView>
+                                <ImageView
+                                    android:layout_width="@dimen/_50sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_money"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Reportes"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/_15ssp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/mis_apps"
+                            style="@style/reportsCardStyle"
+                            android:clickable="true"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="@dimen/_5sdp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_50sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_apps"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Mis Apps"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/_15ssp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/mi_cuenta"
+                            style="@style/reportsCardStyle"
+                            android:clickable="true"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="@dimen/_5sdp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_50sdp"
+                                    android:layout_height="@dimen/_50sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_account"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Mi Cuenta"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/_15ssp" />
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/mi_cuenta"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="?colorTitleBar"
-                        app:cardCornerRadius="@dimen/_15sdp"
-                        app:cardElevation="0dp">
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:elevation="10dp"
+                        android:visibility="gone"
+                        card_view:cardBackgroundColor="?colorTitleBar"
+                        card_view:cardCornerRadius="20dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="@dimen/_11sdp"
-                            android:layout_marginRight="@dimen/_11sdp"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sdp">
 
-                            <ImageView
-                                android:layout_width="@dimen/_45sdp"
-                                android:layout_height="@dimen/_45sdp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_6sdp"
-                                android:contentDescription="@string/imagen"
-                                android:src="@drawable/ic_account"
-                                app:tint="?colorNegro" />
+                            <com.db.williamchart.view.LineChartView
+                                android:id="@+id/ventasChart"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_125sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                app:chart_axis="x"
+                                app:chart_gridEffect="dotted"
+                                app:chart_labelsColor="#FF70977F"
+                                app:chart_labelsFont="@font/helvetica_stand"
+                                app:chart_labelsSize="10sp"
+                                app:chart_lineColor="#ffffff"
+                                app:chart_lineThickness="2dp"
+                                app:chart_smoothLine="true" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:text="@string/mi_cuenta"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_11ssp" />
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:orientation="horizontal">
 
+                                <TextView
+                                    android:id="@+id/lineChartValueVentas"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:fontFamily="@font/helvetica_stand"
+                                    android:text="47"
+                                    android:textColor="#FF70977F"
+                                    android:textSize="24sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:fontFamily="@font/helvetica_stand"
+                                    android:text="Ventas por dias"
+                                    android:textColor="#FF70977F"
+                                    android:textSize="17sp" />
+                            </LinearLayout>
                         </LinearLayout>
-
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_2sdp"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:text="@string/mis_aplicaciones"
-                    android:textColor="?colorNegro"
-                    android:textSize="@dimen/_15sdp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?colorNegro" />
-
             </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-            <com.kennyc.view.MultiStateView
-                android:id="@+id/multiStateView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:msv_emptyView="@layout/empty_view_app"
-                app:msv_errorView="@layout/error_view_app"
-                app:msv_loadingView="@layout/loading_view_app"
-                app:msv_viewState="loading">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </com.kennyc.view.MultiStateView>
-
-        </LinearLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

@@ -1,10 +1,13 @@
 package cu.apklis.comunidad.login
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -13,6 +16,7 @@ import com.android.volley.Response
 import com.android.volley.TimeoutError
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
+import cu.apklis.comunidad.MainActivity
 import cu.apklis.comunidad.R
 import cu.apklis.comunidad.appDetails.VentasAppFragment
 import cu.apklis.comunidad.home.HomeFragment
@@ -78,9 +82,17 @@ class LoginFragment : Fragment() {
         return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<ImageView>(R.id.theme).setOnClickListener {
+            (activity as MainActivity).changeTheme()
+        }
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        btnLogin.setOnClickListener { loginUser() }
+        my_loading_button.setMyButtonClickListener {  loginUser() }
         usuario_input.doOnTextChanged { text, _, _, _ ->
             if (text != null) {
                 if (text.isNotEmpty()) {
@@ -101,16 +113,16 @@ class LoginFragment : Fragment() {
 
     private fun loginUser() {
         var bandera = true
-        mensajeAlert.visibility = View.GONE
+        mensajeAlert.visibility = View.INVISIBLE
         if (!networkManager.isNetworkAvailable(requireContext())) {
             showTost(resources.getString(R.string.sin_red), false)
             return
         }
-        if (usuario_input.text.isEmpty()) {
+        if (usuario_input.text!!.isEmpty()) {
             usuario.error = resources.getString(R.string.campo_obligatorio)
             bandera = false
         }
-        if (password_input.text.isEmpty()) {
+        if (password_input.text!!.isEmpty()) {
             password.error = resources.getString(R.string.campo_obligatorio)
             bandera = false
         }
@@ -132,6 +144,9 @@ class LoginFragment : Fragment() {
                                     UserResponse::class.java
                                 )
                             if (userrObject.is_developer) {
+                                if(userrObject.avatar == null){
+                                    userrObject.avatar = ""
+                                }
                                 val userObject = User(
                                     userrObject.id,
                                     userrObject.username,
@@ -139,6 +154,7 @@ class LoginFragment : Fragment() {
                                     userrObject.first_name,
                                     userrObject.last_name,
                                     userrObject.avatar,
+                                    userrObject.phone_number,
                                     tokensObject
                                 )
                                 val userJson = Gson().toJson(userObject)
@@ -214,6 +230,8 @@ class LoginFragment : Fragment() {
                 }
             }
             VolleySingleton.getInstance(requireContext()).addToRequestQueue(stringRequest)
+        }else{
+            changeLoadingVisibility(false)
         }
     }
 
@@ -234,11 +252,15 @@ class LoginFragment : Fragment() {
 
     private fun changeLoadingVisibility(loading: Boolean) {
         if (loading) {
-            btnLogin?.visibility = View.GONE
-            btnLoginLoading?.visibility = View.VISIBLE
+            my_loading_button.showLoadingButton()
+            my_loading_button.hideKeyboard()
         } else {
-            btnLoginLoading?.visibility = View.GONE
-            btnLogin?.visibility = View.VISIBLE
+            my_loading_button.showNormalButton()
         }
+    }
+
+    private fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }

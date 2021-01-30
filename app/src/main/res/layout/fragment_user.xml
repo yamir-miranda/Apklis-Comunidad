@@ -13,54 +13,61 @@
         android:orientation="vertical">
 
         <FrameLayout
-            android:id="@+id/superior"
-            style="?barraTitulo"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/_10sdp">
+            android:layout_height="wrap_content">
+
+            <com.scwang.wave.MultiWaveHeader
+                android:id="@+id/waveHeader"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:scaleY="1"
+                app:mwhCloseColor="@color/colorPrimaryDark"
+                app:mwhColorAlpha="0.45"
+                app:mwhGradientAngle="45"
+                app:mwhProgress="1"
+                app:mwhStartColor="@color/colorPrimaryDark"
+                app:mwhVelocity="1"
+                app:mwhWaveHeight="50dp"
+                app:mwhWaves="MultiWave" />
 
             <TextView
-                android:id="@+id/logo"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginBottom="@dimen/_7sdp"
-                android:fontFamily="@font/helvetica_stand"
-                android:gravity="center"
-                android:text="@string/dev_cuba"
-                android:textColor="?colorNegro"
-                android:textSize="@dimen/_25ssp" />
+                android:layout_marginTop="@dimen/_22sdp"
+                android:text="Mi Cuenta"
+                android:textColor="@color/colorBlanco"
+                android:textSize="@dimen/_24ssp" />
 
-            <ImageView
-                style="?logoImagen"
-                android:layout_width="@dimen/_155sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_gravity="center|start"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginBottom="@dimen/_7sdp"
-                android:contentDescription="@string/imagen"
-                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end|center"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/exit"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/theme"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:contentDescription="@string/imagen"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/ic_exit"
-                    card_view:tint="?colorNegro" />
+                    android:src="@drawable/ic_theme"
+                    android:visibility="visible" />
 
+                <ImageView
+                    android:id="@+id/exit"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:contentDescription="@string/imagen"
+                    android:src="@drawable/ic_exit"
+                    android:visibility="visible" />
             </LinearLayout>
+
 
         </FrameLayout>
 
@@ -89,259 +96,548 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
-            android:elevation="10dp"
-            card_view:cardBackgroundColor="?colorTitleBar"
-            card_view:cardCornerRadius="@dimen/_10sdp">
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userAvatar"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:contentDescription="@string/imagen"
+                android:src="@drawable/avatar" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:fontFamily="@font/helvetica_stand"
-                    android:text="Usuario"
-                    android:textColor="?colorNegro"
-                    android:textSize="@dimen/_16ssp"
-                    tools:ignore="RtlHardcoded" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="horizontal">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/userAvatar"
-                            android:layout_width="@dimen/_45sdp"
-                            android:layout_height="@dimen/_45sdp"
-                            android:layout_marginEnd="@dimen/_5sdp"
-                            android:contentDescription="@string/imagen"
-                            android:src="@drawable/avatar" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start|center"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/nombreApllidos"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:textColor="?colorNegro"
-                                android:textSize="@dimen/_15ssp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/ic_email"
-                                    card_view:tint="?colorNegro" />
-
-                                <TextView
-                                    android:id="@+id/user"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="start|center"
-                                    android:layout_marginStart="@dimen/_5sdp"
-                                    android:textColor="?colorNegro"
-                                    android:textSize="@dimen/_13ssp" />
-
-                                <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:src="@drawable/ic_apps"
-                                    android:visibility="gone"
-                                    card_view:tint="?colorNegro" />
-
-                                <TextView
-                                    android:id="@+id/apps"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="start|center"
-                                    android:layout_marginStart="@dimen/_5sdp"
-                                    android:textColor="?colorNegro"
-                                    android:textSize="@dimen/_13ssp" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/_15sdp"
-                        android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_correo"
-                        card_view:tint="?colorNegro" />
-
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_12ssp" />
-                </LinearLayout>
-
-                <LinearLayout
+                    android:id="@+id/view_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:visibility="gone"
+                    android:text="Yamir Miranda Veitia"
+                    android:textSize="@dimen/_18ssp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="@dimen/_15sdp"
-                        android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_ubicacion"
-                        card_view:tint="?colorNegro" />
 
                     <TextView
-                        android:id="@+id/ubicacion"
+                        android:id="@+id/view_user_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_12ssp" />
+                        android:text="yveitia"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/_14ssp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:orientation="vertical">
-
+                    android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center"
-                        android:text="Firma de Desarrollador(SHA1)"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <View
+                        android:id="@+id/view_user_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:layout_marginBottom="@dimen/_4sdp"
-                        android:background="?colorNegro" />
-
-                    <TextView
-                        android:id="@+id/sha1"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start|center"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_8ssp" />
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Desarrollador | Vendedor"
+                        android:textSize="@dimen/_14ssp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:visibility="gone"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center"
-                        android:text="Descripción"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:layout_marginBottom="@dimen/_4sdp"
-                        android:background="?colorNegro" />
-
-                    <TextView
-                        android:id="@+id/descripcion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_8ssp" />
-                </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
+        </LinearLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:elevation="10dp"
-            android:visibility="gone"
-            card_view:cardBackgroundColor="?colorTitleBar"
-            card_view:cardCornerRadius="@dimen/_10sdp">
-
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp">
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
                 android:orientation="vertical">
+                <TextView
+                    android:id="@+id/view_apps_deseos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="10"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="@dimen/_18sdp"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:fontFamily="@font/helvetica_stand"
-                    android:text="Datos del vendedor"
-                    android:textColor="?colorNegro"
-                    android:textSize="@dimen/_16ssp"
-                    tools:ignore="RtlHardcoded" />
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_gravity="center"
+                    android:alpha="0.8"
+                    android:text="Deseos" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/view_apps_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="10"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="@dimen/_18sdp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_gravity="center"
+                    android:alpha="0.8"
+                    android:text="Favoritas" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/view_apps_shop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:text="10"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="@dimen/_18sdp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_12ssp"
+                    android:layout_gravity="center"
+                    android:alpha="0.8"
+                    android:text="Compras" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="@dimen/_5sdp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_11sdp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Usuario"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_namee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yamir"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apellidos:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_apellidos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Miranda Veitia"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Móvil:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_movil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="+53 5 2638973"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="yamir.miranda@nauta.cu"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Desarrollador:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_dev_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activo"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Miembro Desde:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_member"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="hace 2 años"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_12ssp"
-                        android:text="a\na\na\na\n\an\an"/>
+                        android:text="Firma:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_user_sha1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5E:A7:CD:4F:2B:68:37:DA:4C:96:C1:6E:F2:98:CC:71:06:E9:E5:3A"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
                 </LinearLayout>
 
+
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="@dimen/_5sdp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_11sdp"
+                android:layout_marginLeft="@dimen/_11sdp"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vendedor"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yamir Miranda Veitia"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Móvil:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_movil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+53 5 2638973"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="yveitia@estudiantes.uci.cu"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CI:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_ci"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="97091114740"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cuenta:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9205129972976501"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Estado:"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activo"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Municipio:"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_municipio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Morón"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Provincia:"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_provincia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ciego de Avila"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dirección:"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/view_seller_direccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="calle 9na E/ 10 y calle cuarta, edificio 5, apartamento 36, Morón"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:textSize="@dimen/_11ssp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
     </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

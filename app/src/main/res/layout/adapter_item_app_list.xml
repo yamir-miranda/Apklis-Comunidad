@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_10sdp"
-    android:elevation="10dp"
+    android:layout_marginStart="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
     android:foreground="?android:selectableItemBackground"
-    card_view:cardBackgroundColor="?colorTitleBar"
-    card_view:cardCornerRadius="@dimen/_10sdp">
+    card_view:cardCornerRadius="16dp"
+    card_view:cardElevation="@dimen/_5sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,8 +26,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/appIcon"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_width="@dimen/_37sdp"
+                android:layout_height="@dimen/_37sdp"
                 android:src="@drawable/avatar" />
 
 
@@ -35,18 +37,17 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="left|center"
-                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/nombre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yamir Miranda Veitia"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_15ssp" />
+                        android:text="AppName"
+                        android:textSize="@dimen/_16ssp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -62,58 +63,85 @@
                             android:layout_height="wrap_content"
                             android:numStars="5"
                             android:rating="3.9" />
-
-                        <TextView
-                            android:id="@+id/reviews_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_3sdp"
-                            android:text="(36)"
-                            android:textColor="?colorNegro"
-                            android:textSize="@dimen/_9ssp" />
                     </LinearLayout>
 
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="right|center"
                     android:gravity="left|center"
-                    android:orientation="horizontal"
-                    tools:ignore="RtlHardcoded">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_1sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
-                        android:src="@drawable/ic_app_download"
-                        card_view:tint="?colorNegro" />
-
-                    <TextView
-                        android:id="@+id/cantDownload"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="@dimen/_105sdp"
                         android:layout_height="wrap_content"
-                        android:text="10"
-                        android:textColor="?colorNegro"
-                        android:textSize="@dimen/_20ssp" />
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <RelativeLayout
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/view_a_ventas"
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:src="@drawable/ic_ventas"
+                                android:visibility="gone" />
+                            <ImageView
+                                android:id="@+id/view_a_download"
+                                android:layout_width="@dimen/_15sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:src="@drawable/ic_app_download"
+                                android:visibility="gone"
+                                />
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:id="@+id/cantDownload"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="left|center"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <ImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:src="@drawable/ic_comment" />
+
+                        <TextView
+                            android:id="@+id/reviews_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
                 </LinearLayout>
+
 
             </FrameLayout>
 
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:orientation="vertical"
-            android:visibility="visible">
-
-        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/botones"
@@ -141,4 +169,4 @@
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

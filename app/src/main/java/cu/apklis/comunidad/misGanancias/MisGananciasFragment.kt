@@ -1,5 +1,6 @@
 package cu.apklis.comunidad.misGanancias
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,12 +17,16 @@ import com.google.gson.Gson
 import com.kennyc.view.MultiStateView
 import cu.apklis.comunidad.MainActivity
 import cu.apklis.comunidad.R
+import cu.apklis.comunidad.home.GraficAdapter
 import cu.apklis.comunidad.login.LoginFragment
 import cu.apklis.comunidad.models.User
 import cu.apklis.comunidad.utils.MyPreferences
 import cu.apklis.comunidad.utils.NetworkManager
 import cu.apklis.comunidad.webservices.VolleySingleton
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.*
+import kotlinx.android.synthetic.main.fragment_mis_ganancias.exit
+import kotlinx.android.synthetic.main.fragment_mis_ganancias.sparkview
+import kotlinx.android.synthetic.main.fragment_mis_ganancias.theme
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.view.*
 
 import java.math.RoundingMode
@@ -111,12 +116,12 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
         val mes = now[Calendar.MONTH] + 1
         val text1 = "01/" + mes + "/" + now[Calendar.YEAR]
         global_fecha_inicio = "" + now[Calendar.YEAR] + "-" + mes + "-01"
-        ventas_fecha_inicio.text = text1
+        view_date_start?.text = text1
         val text2 =
             "" + now[Calendar.DAY_OF_MONTH] + "/" + mes + "/" + now[Calendar.YEAR]
         global_fecha_final =
             "" + now[Calendar.YEAR] + "-" + mes + "-" + now[Calendar.DAY_OF_MONTH]
-        ventas_fecha_final.text = text2
+        view_date_end?.text = text2
         val millionSeconds = now.timeInMillis - fecha_inicio.timeInMillis
         val days_diff = java.util.concurrent.TimeUnit.MILLISECONDS.toDays(millionSeconds) + 1
         var text3 = ""
@@ -125,11 +130,11 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
         } else {
             "$days_diff días"
         }
-        ventas_dias_reporte.text = text3
+        view_date_cont_day?.text = text3
         builder.setTitleText("Selecione rango para reporte")
         builder.setSelection(androidx.core.util.Pair(fecha_inicio.timeInMillis, now.timeInMillis))
         val picker = builder.build()
-        buttom_reporte.setOnClickListener {
+        view_card_date.setOnClickListener {
             if (!picker.isVisible){
                 picker.show(activity?.supportFragmentManager!!, picker.toString())
             }
@@ -141,9 +146,9 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
             timeZone = TimeZone.getTimeZone("UTC")
         }
         picker.addOnPositiveButtonClickListener {
-            ventas_fecha_inicio.text = outputDateFormat.format(it.first)
+            view_date_start?.text = outputDateFormat.format(it.first)
             global_fecha_inicio = outputDateFormatAPI.format(it.first)
-            ventas_fecha_final.text = outputDateFormat.format(it.second)
+            view_date_end?.text = outputDateFormat.format(it.second)
             global_fecha_final = outputDateFormatAPI.format(it.second)
             val diff: Long = it.second!! - it.first!!
             val seconds = diff / 1000
@@ -156,8 +161,8 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
             } else {
                 "$days días"
             }
-            ventas_dias_reporte.text = text4
-            ventas_progress_bar.visibility = View.VISIBLE
+            view_date_cont_day.text = text4
+            view_load_data.visibility = View.VISIBLE
             loadDataApi(false)
         }
         if (param2 != 0) {
@@ -166,6 +171,28 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
 
         swipeRefreshReportVentas.setOnRefreshListener {
             loadDataApi(false)
+        }
+
+        theme.setOnClickListener {
+            (activity as MainActivity).changeTheme()
+        }
+
+        exit.setOnClickListener {
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Cerrar Sección")
+            builder.setMessage("Usted esta seguro que desea cerrar la sección")
+            builder.setPositiveButton(
+                "Cerrar Sección"
+            ) { dialog, id ->
+                MyPreferences(requireContext()).userObject = ""
+                addFragmentToFragment(LoginFragment())
+            }
+            builder.setNegativeButton(
+                "Cancelar"
+            ) { dialog, id ->
+                dialog.dismiss()
+            }
+            builder.show()
         }
     }
 
@@ -198,8 +225,11 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
         if (loading) {
             multiStateViewGanancias?.viewState = MultiStateView.ViewState.LOADING
         }
+        view_comportamiento_sin_datos?.visibility = View.GONE
+        val seller = userObject!!.phone.substring(6, 13)
+        Log.d(TAG, "loadDataApi: $seller")
         val url =
-            "https://api.apklis.cu/v1/payment/sales/?lte="+global_fecha_final+" 23:59&gte=" + global_fecha_inicio + "&user="+ userObject!!.username
+            "https://api.apklis.cu/v1/payment/sales/?lte=$global_fecha_final 23:59&gte=$global_fecha_inicio&seller=%2B53%205%20$seller"
         val stringRequest: StringRequest = object : StringRequest(Method.GET, url,
             Response.Listener { response ->
                 val byte: ByteArray = response.toByteArray(charset("ISO-8859-1"))
@@ -220,24 +250,27 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
                 adapterReportMisGanancias?.setData(list)
                 var importeTotal = 0.00
                 var cantidad_ventas= 0
+                val data = ArrayList<Float>()
                 for (element in gananciasObject) {
                     importeTotal += element.ammount
                     cantidad_ventas+= element.sales
+                    data.add((roundOffDecimal(element.ammount * 66.5)!!.div(100)).toFloat())
                 }
-                ventas_cantidad_ventas?.text = cantidad_ventas.toString()
-                val text_total = roundOffDecimal(importeTotal).toString() + " CUP"
-                ventas_total_ventas?.text = text_total
-                val text_impuesto = roundOffDecimal(importeTotal * 0.30).toString() + " CUP"
-                ventas_impuesto?.text = text_impuesto
-                val text_onat = roundOffDecimal(importeTotal * 0.035).toString() + " CUP"
-                ventas_onat?.text = text_onat
+                sparkview?.adapter = GraficAdapter(data)
+                if (data.isEmpty() || data.size == 1) {
+                    view_comportamiento_sin_datos?.visibility = View.VISIBLE
+                }
+                view_ventas?.text = "$cantidad_ventas Ventas"
+                val text_total = "Total: " + roundOffDecimal(importeTotal).toString() + " CUP"
+                view_total?.text = text_total
+                val text_impuesto = "Impuestos: " + roundOffDecimal((importeTotal * 0.30) + (importeTotal * 0.035)).toString() + " CUP"
+                view_impuestos?.text = text_impuesto
                 val text_monto =
                     roundOffDecimal(importeTotal * 0.665).toString() + " CUP"
-                ventas_monto?.text = text_monto
-                Log.d(TAG, "loadDataApi: $importeTotal")
+                view_ganancias?.text = text_monto
                 multiStateViewGanancias?.viewState = MultiStateView.ViewState.CONTENT
                 swipeRefreshReportVentas?.isRefreshing = false
-                ventas_progress_bar?.visibility = View.INVISIBLE
+                view_load_data?.visibility = View.INVISIBLE
 
             }, Response.ErrorListener { error ->
                 when (error) {
@@ -261,7 +294,7 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
                 }
                 multiStateViewGanancias?.viewState = MultiStateView.ViewState.ERROR
                 swipeRefreshReportVentas?.isRefreshing = false
-                ventas_progress_bar?.visibility = View.INVISIBLE
+                view_load_data?.visibility = View.INVISIBLE
             }) {
 
             override fun getHeaders(): MutableMap<String, String> {
