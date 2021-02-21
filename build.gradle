@@ -2,8 +2,6 @@
 buildscript {
     ext.kotlin_version = "1.3.72"
     repositories {
-        mavenCentral()
-        maven { url "http://nexus.prod.uci.cu/repository/maven.google.com/" }
         maven { url "https://jitpack.io" }
         maven { url "https://repo1.maven.org/maven2/" }
         maven {
@@ -23,8 +21,6 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()
-        maven { url "http://nexus.prod.uci.cu/repository/maven.google.com/" }
         maven { url "https://jitpack.io" }
         maven { url "https://repo1.maven.org/maven2/" }
         maven {

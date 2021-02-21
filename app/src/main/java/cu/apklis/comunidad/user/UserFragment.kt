@@ -116,11 +116,14 @@ class UserFragment : Fragment(), MultiStateView.StateListener {
                         UserResponse::class.java
                     )
 
-                Glide.with(requireContext())
-                    .load(usuarioObject.avatar)
-                    .placeholder(R.drawable.avatar)
-                    .error(R.drawable.avatar)
-                    .into(userAvatar)
+                if (userAvatar != null){
+                    Glide.with(requireContext())
+                        .load(usuarioObject.avatar)
+                        .placeholder(R.drawable.ic_user_profile)
+                        .error(R.drawable.ic_user_profile)
+                        .into(userAvatar)
+                }
+
                 val name = usuarioObject.first_name + " " + usuarioObject.last_name
                 view_user_name?.text = name
                 view_user_username?.text = usuarioObject.username

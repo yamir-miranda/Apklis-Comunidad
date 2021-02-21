@@ -31,6 +31,9 @@ class ViewPagerFragmentAdapter(
             3-> {
                 DownloadAppFragment.newInstance(appId!!, "")
             }
+            4-> {
+                DownloadAppFragment.newInstance(appId!!, "")
+            }
             else -> {
                 AppDetailsFragment.newInstance(appPackage!!, "")
             }

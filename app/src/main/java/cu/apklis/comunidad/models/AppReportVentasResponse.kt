@@ -1,16 +1,14 @@
 package cu.apklis.comunidad.models
 
 data class AppReportVentasResponse(
-    val count : Int,
-    val next : String,
-    val previous : String,
-    val results : List<Results>
+    val results : List<AppResportResults>
 )
 
-data class Results (
+data class AppResportResults (
 
     val id : Int,
     val seller : String,
+    val cid : String,
     val products : List<Int>,
     val buyer : String,
     val buyer_phone : String,

@@ -17,6 +17,7 @@ import cu.apklis.comunidad.R
 import cu.apklis.comunidad.login.LoginFragment
 import cu.apklis.comunidad.models.AppListResponse
 import cu.apklis.comunidad.models.User
+import cu.apklis.comunidad.utils.DateUtils
 import cu.apklis.comunidad.utils.MyPreferences
 import cu.apklis.comunidad.utils.NetworkManager
 import cu.apklis.comunidad.webservices.VolleySingleton
@@ -157,43 +158,59 @@ class AppDetailsFragment : Fragment(), MultiStateView.StateListener {
                     app_details_reviews_star_1_bar?.progress = porc1
                     app_details_reviews_star_1_text?.text = porc1Text
 
-                    val categories = StringBuilder()
-                    for(categoria in appObject.categories){
-                        categories.append(categoria.name + "/ ")
-                    }
-                    app_details_categorias?.text = categories.toString()
-
-                    if (appObject.last_release.abi.size !=0){
-                        card_arquitectura?.visibility = View.VISIBLE
-                        val arquitecturas = StringBuilder()
-                        for(arquitc in appObject.last_release.abi){
-                            arquitecturas.append(arquitc.abi + "/ ")
-                        }
-                        app_details_arquitecturas?.text = arquitecturas.toString()
-                    }
-                    view_release_version_name?.text = appObject.last_release.version_name
-                    view_release_version_code?.text = appObject.last_release.version_code.toString()
-                    view_release_size?.text = appObject.last_release.human_readable_size
-                    view_release_sdk_min?.text = appObject.last_release.version_sdk_name
-                    view_release_sdk_object?.text = appObject.last_release.version_target_sdk_name
-
-                    if (appObject.public){
-                        view_app_visibiliti?.text = "Publica"
-                    }else{
-                        view_app_visibiliti?.text = "Privada"
-                    }
-
-                    view_app_download_count?.text = appObject.download_count.toString()
-                    view_app_sales_count?.text = appObject.sale_count.toString()
-                    val text = appObject.price.toString()+" CUP"
-                    view_app_price?.text = text
-                    view_app_name?.text = appObject.name
-                    view_app_package?.text = appObject.package_name
-
                 }
 
+                val categories = StringBuilder()
+                for(categoria in appObject.categories){
+                    categories.append(categoria.name + "/ ")
+                }
+                app_details_categorias?.text = categories.toString()
 
-                multiStateViewAppDetalles?.viewState = MultiStateView.ViewState.CONTENT
+                if (appObject.last_release.abi.size !=0){
+                    card_arquitectura?.visibility = View.VISIBLE
+                    val arquitecturas = StringBuilder()
+                    for(arquitc in appObject.last_release.abi){
+                        arquitecturas.append(arquitc.abi + "/ ")
+                    }
+                    app_details_arquitecturas?.text = arquitecturas.toString()
+                }
+                view_release_version_name?.text = appObject.last_release.version_name
+                view_release_version_code?.text = appObject.last_release.version_code.toString()
+                view_release_size?.text = appObject.last_release.human_readable_size
+                view_release_sdk_min?.text = appObject.last_release.version_sdk_name
+                view_release_sdk_object?.text = appObject.last_release.version_target_sdk_name
+
+                if (appObject.public){
+                    view_app_visibiliti?.text = "Publica"
+                }else{
+                    view_app_visibiliti?.text = "Privada"
+                }
+
+                view_app_download_count?.text = appObject.download_count.toString()
+                view_app_sales_count?.text = appObject.sale_count.toString()
+                val text = appObject.price.toString()+" CUP"
+                view_app_price?.text = text
+                view_app_name?.text = appObject.name
+                view_app_package?.text = appObject.package_name
+
+                view_app_actualizada?.text = DateUtils().getTimeAgo(
+                    DateUtils().loadDateofString(
+                        "yyyy-MM-dd'T'HH:mm:ss",
+                        appObject.last_release.published
+                    ), requireContext()
+                )
+
+                view_app_publicada?.text = DateUtils().getTimeAgo(
+                    DateUtils().loadDateofString(
+                        "yyyy-MM-dd'T'HH:mm:ss",
+                        appObject.last_updated
+                    ), requireContext()
+                )
+
+                view_app_capturas?.text = appObject.last_release.screenshots.size.toString()
+
+
+                    multiStateViewAppDetalles?.viewState = MultiStateView.ViewState.CONTENT
                 swipeRefreshDetalles?.isRefreshing = false
 
             }, Response.ErrorListener { error ->

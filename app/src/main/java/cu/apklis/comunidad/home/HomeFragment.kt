@@ -13,6 +13,7 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import cu.apklis.comunidad.MainActivity
 import cu.apklis.comunidad.R
+import cu.apklis.comunidad.analisis.AnalisisFragment
 import cu.apklis.comunidad.login.LoginFragment
 import cu.apklis.comunidad.misApps.MisAppsFragment
 import cu.apklis.comunidad.misGanancias.MisGananciasFragment
@@ -72,6 +73,12 @@ class HomeFragment : Fragment() {
         view_mis_ganancias.setOnClickListener {
             addFragmentToFragmentBack(MisGananciasFragment())
         }
+
+        view_mis_estadisticas.setOnClickListener {
+            addFragmentToFragmentBack(AnalisisFragment())
+        }
+
+
 
         theme.setOnClickListener {
             (activity as MainActivity).changeTheme()
@@ -138,6 +145,8 @@ class HomeFragment : Fragment() {
             "" + now[Calendar.YEAR] + "-" + mes + "-" + now[Calendar.DAY_OF_MONTH]
         val seller = userObject!!.phone.substring(6, 13)
         val fecha_hoy = DateUtils().formatStringDate("yyyy-MM-dd", "yyyy-MM-dd", global_fecha_final)
+        val millionSeconds = now.timeInMillis - fecha_inicio.timeInMillis
+        val days_diff = java.util.concurrent.TimeUnit.MILLISECONDS.toDays(millionSeconds) + 1
         val url =
             "https://api.apklis.cu/v1/payment/sales/?lte=$global_fecha_final 23:59&gte=$global_fecha_inicio&seller=%2B53%205%20$seller"
         val stringRequest: StringRequest = object : StringRequest(Method.GET, url,
@@ -157,6 +166,8 @@ class HomeFragment : Fragment() {
                 }
                 var today_sales_import = 0.00
                 var today_sales_count = 0
+                var prom_sales_import = 0.00
+                var prom_sales_count = 0
                 var importeTotal = 0.00
                 var cantidad_ventas = 0
                 val data = ArrayList<Float>()
@@ -168,13 +179,36 @@ class HomeFragment : Fragment() {
                     if (element.day.equals(fecha_hoy)) {
                         today_sales_count = element.sales
                         today_sales_import = element.ammount
+                    }else{
+                        prom_sales_count += element.sales
+                        prom_sales_import += element.ammount
                     }
                 }
+
+                Log.d(TAG, "loadDataApi today_sales_import: " + today_sales_import*0.665)
+                Log.d(TAG, "loadDataApi prom_sales_import: " + prom_sales_import*0.665)
+                Log.d(TAG, "loadDataApi days_diff: " + (days_diff-1))
+
+                val numb = roundOffDecimal((today_sales_import*0.665) - ((prom_sales_import*0.665)/(days_diff-1)))
+                var text011 = ""
+                if (numb!! <0){
+                    text011 = "$numb CUP"
+                    view_hoy_status?.setTextColor(resources.getColor(R.color.colorRojo))
+                    view_mes_status?.setTextColor(resources.getColor(R.color.colorRojo))
+                }else{
+                    text011 = "+$numb CUP"
+                    view_hoy_status?.setTextColor(resources.getColor(R.color.colorVerde))
+                    view_mes_status?.setTextColor(resources.getColor(R.color.colorVerde))
+                }
+                view_hoy_status?.text = text011
 
                 sparkview?.adapter = GraficAdapter(data)
                 if (data.isEmpty()) {
                     sin_datos?.visibility = View.VISIBLE
                 }
+
+                val text01 = "+"+ roundOffDecimal(((prom_sales_import*0.665)/(days_diff-1)))+" CUP"
+                view_mes_status?.text = text01
 
                 val text10 = cantidad_ventas.toString() + " Ventas"
                 view_mes_ventas?.text = text10

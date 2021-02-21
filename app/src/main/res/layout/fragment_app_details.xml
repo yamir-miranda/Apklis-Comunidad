@@ -183,6 +183,63 @@
                                     android:layout_marginBottom="@dimen/_5sdp"
                                     android:textSize="@dimen/_11ssp" />
                             </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Capturas:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_capturas"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10mb"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Publicada:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_publicada"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="hace dos meses"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Actualizada:"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+
+                                <TextView
+                                    android:id="@+id/view_app_actualizada"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="hace 15 dias"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:textSize="@dimen/_11ssp" />
+                            </FrameLayout>
 
 
                         </LinearLayout>

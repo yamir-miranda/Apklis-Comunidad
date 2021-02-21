@@ -11,4 +11,5 @@
     <color name="colorTitleBarDark">#252424</color>
     <color name="colorRojo">#FF0000</color>
     <color name="colorFondoLight">#F4F3F3</color>
+    <color name="colorVerde">#00FF04</color>
 </resources>

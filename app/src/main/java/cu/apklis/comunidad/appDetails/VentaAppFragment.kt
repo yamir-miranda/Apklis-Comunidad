@@ -17,9 +17,7 @@ import com.kennyc.view.MultiStateView
 import cu.apklis.comunidad.MainActivity
 import cu.apklis.comunidad.R
 import cu.apklis.comunidad.login.LoginFragment
-import cu.apklis.comunidad.models.AppReportVentasResponse
-import cu.apklis.comunidad.models.ReportVentas
-import cu.apklis.comunidad.models.User
+import cu.apklis.comunidad.models.*
 import cu.apklis.comunidad.utils.MyPreferences
 import cu.apklis.comunidad.utils.NetworkManager
 import cu.apklis.comunidad.webservices.VolleySingleton
@@ -214,14 +212,17 @@ class VentasAppFragment : Fragment(), MultiStateView.StateListener {
         val stringRequest: StringRequest = object : StringRequest(Method.GET, url,
             Response.Listener { response ->
                 val byte: ByteArray = response.toByteArray(charset("ISO-8859-1"))
-                val downloadObject =
+
+                val ventasObject =
                     Gson().fromJson(
                         String(byte, charset("UTF-8")),
-                        AppReportVentasResponse::class.java
+                        Array<AppResportResults>::class.java
                     )
+
+
                 var importeTotal = 0.00
                 val sales: ArrayList<ReportVentas> = ArrayList()
-                for (element in downloadObject.results) {
+                for (element in ventasObject) {
                     importeTotal += element.ammount
                     sales.add(ReportVentas(element.bank, element.buyer, element.date))
                 }

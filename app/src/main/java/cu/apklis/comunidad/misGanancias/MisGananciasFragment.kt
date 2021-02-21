@@ -1,6 +1,7 @@
 package cu.apklis.comunidad.misGanancias
 
 import android.app.AlertDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -23,6 +24,8 @@ import cu.apklis.comunidad.models.User
 import cu.apklis.comunidad.utils.MyPreferences
 import cu.apklis.comunidad.utils.NetworkManager
 import cu.apklis.comunidad.webservices.VolleySingleton
+import im.dacer.androidcharts.LineView
+import kotlinx.android.synthetic.main.fragment_download_app.*
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.*
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.exit
 import kotlinx.android.synthetic.main.fragment_mis_ganancias.sparkview
@@ -112,10 +115,12 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
         val builder = MaterialDatePicker.Builder.dateRangePicker()
         val now = Calendar.getInstance()
         val fecha_inicio = Calendar.getInstance()
-        fecha_inicio.set(now[Calendar.YEAR], now[Calendar.MONTH], 1)
+       // fecha_inicio.set(now[Calendar.YEAR], now[Calendar.MONTH], 1)
+        fecha_inicio.set(2020, 11, 18)
         val mes = now[Calendar.MONTH] + 1
-        val text1 = "01/" + mes + "/" + now[Calendar.YEAR]
-        global_fecha_inicio = "" + now[Calendar.YEAR] + "-" + mes + "-01"
+        val text1 = "18/12/2020"
+        //global_fecha_inicio = "" + now[Calendar.YEAR] + "-" + mes + "-01"
+        global_fecha_inicio = "2020-12-18"
         view_date_start?.text = text1
         val text2 =
             "" + now[Calendar.DAY_OF_MONTH] + "/" + mes + "/" + now[Calendar.YEAR]
@@ -251,15 +256,38 @@ class MisGananciasFragment : Fragment(), MultiStateView.StateListener {
                 var importeTotal = 0.00
                 var cantidad_ventas= 0
                 val data = ArrayList<Float>()
+
+                val grafic_ventas_cup_title = ArrayList<String>()
+                val grafic_ventas_cup_data: ArrayList<Float> = ArrayList()
+                val grafic_ventas_cant_data: ArrayList<Int> = ArrayList()
+
                 for (element in gananciasObject) {
                     importeTotal += element.ammount
                     cantidad_ventas+= element.sales
+                    grafic_ventas_cup_data.add(element.ammount.toFloat())
+                    grafic_ventas_cup_title.add(element.day)
+                    grafic_ventas_cant_data.add(element.sales)
                     data.add((roundOffDecimal(element.ammount * 66.5)!!.div(100)).toFloat())
                 }
                 sparkview?.adapter = GraficAdapter(data)
                 if (data.isEmpty() || data.size == 1) {
                     view_comportamiento_sin_datos?.visibility = View.VISIBLE
                 }
+
+                view_grafic_ventas_cup?.setBottomTextList(grafic_ventas_cup_title)
+                view_grafic_ventas_cup?.setColorArray(
+                    intArrayOf(
+                        Color.parseColor("#056CD0"), Color.parseColor("#056CD0"),
+                        Color.parseColor("#056CD0"), Color.parseColor("#056CD0")
+                    )
+                )
+                view_grafic_ventas_cup?.setDrawDotLine(true)
+                view_grafic_ventas_cup?.setShowPopup(LineView.SHOW_POPUPS_NONE)
+                val dataList: ArrayList<ArrayList<Float>> = ArrayList()
+                dataList.add(grafic_ventas_cup_data)
+                view_grafic_ventas_cup?.setFloatDataList(dataList)
+
+
                 view_ventas?.text = "$cantidad_ventas Ventas"
                 val text_total = "Total: " + roundOffDecimal(importeTotal).toString() + " CUP"
                 view_total?.text = text_total
